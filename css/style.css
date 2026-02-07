@@ -608,11 +608,14 @@ section {
 [data-gallery-img="5"] .gallery-img { background-image: url("../assets/headshot-5.jpg"); }
 [data-gallery-img="6"] .gallery-img { background-image: url("../assets/headshot-6.jpg"); }
 
-/* ----- Movement (Dance & Aerial) — uncomment when section is visible -----
+/* ----- Movement (Dance & Aerial) ----- */
 .movement {
   position: relative;
   background: var(--bg);
   overflow: hidden;
+}
+.movement-page-hero {
+  padding-top: calc(var(--header-h) + 4rem);
 }
 .movement-bg {
   position: absolute;
@@ -672,7 +675,6 @@ section {
   border-radius: 4px;
   font-size: 0.9em;
 }
------ */
 
 /* ----- Contact ----- */
 .contact {
@@ -842,6 +844,79 @@ section {
 .cta-pill-outline:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+
+/* ----- Splash (split landing) ----- */
+.splash {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.splash-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: filter 0.3s ease;
+}
+.splash-panel:hover {
+  filter: brightness(1.05);
+}
+.splash-panel:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+.splash-panel-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--surface) center center / cover no-repeat;
+}
+.splash-panel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 10, 10, 0.5) 0%, rgba(12, 10, 10, 0.85) 100%);
+}
+.splash-panel-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 320px;
+}
+.splash-panel h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text);
+}
+.splash-panel p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
+}
+.splash-panel .btn {
+  margin-top: 0;
+}
+.splash-panel-acting .splash-panel-bg {
+  background-image: url("../assets/hero.jpg");
+}
+.splash-panel-dance .splash-panel-bg {
+  background: var(--bg-elevated);
+}
+@media (max-width: 768px) {
+  .splash {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .splash-panel {
+    min-height: 50vh;
+  }
 }
 
 /* ----- Responsive ----- */
