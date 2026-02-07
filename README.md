@@ -16,10 +16,10 @@ A custom, cinematic single-page actor site built with HTML, CSS, and JavaScript.
 ## Quick start
 
 1. **Add your assets**  
-   Put your images and reel in the `assets/` folder. See `assets/README.md` for exact filenames (`hero.jpg`, `about.jpg`, `reel.mp4`, `headshot-1.jpg` … `headshot-6.jpg`).
+   Put acting images and reel in `assets/acting/`. See `assets/acting/README.md` for exact filenames (`hero.jpg`, `about.jpg`, `reel.mp4`, `headshot-1.jpg` … `headshot-6.jpg`). Dance/aerial assets go in `assets/dance/`.
 
 2. **Copy your reel**  
-   Copy `Mickey_Farmer_Reel.mp4` from your Acting folder into `assets/reel.mp4` (or point the video `src` in `index.html` to your hosted reel URL).
+   Copy `Mickey_Farmer_Reel.mp4` from your Acting folder into `assets/acting/reel.mp4` (or point the video `src` in `index.html` to your hosted reel URL).
 
 3. **Edit content**  
    Open `index.html` and update:
@@ -83,9 +83,9 @@ The site will then be served from your custom domain.
 
 ### Video file size
 
-GitHub has a **100 MB per-file** limit. If `assets/reel.mp4` is larger:
+GitHub has a **100 MB per-file** limit. If `assets/acting/reel.mp4` is larger:
 
-1. Add `assets/reel.mp4` to `.gitignore` (uncomment the line there).
+1. Add `assets/acting/reel.mp4` to `.gitignore` (uncomment the line there).
 2. Host the video on **Vimeo** or **YouTube**, or another host.
 3. In `index.html`, replace the `<video>` tag’s `src` with the hosted URL, or use an iframe embed for Vimeo/YouTube.
 
@@ -94,6 +94,16 @@ GitHub has a **100 MB per-file** limit. If `assets/reel.mp4` is larger:
 - **Colors** — Edit CSS variables in `css/style.css` (`:root`): `--accent`, `--text`, `--bg`, etc.
 - **Fonts** — The site uses Cormorant Garamond (headings) and Outfit (body) from Google Fonts. Change the `<link>` in `index.html` and the `--font-display` / `--font-body` variables in CSS.
 - **Sections** — Add or remove sections in `index.html` and add matching styles in `style.css`. Keep `data-reveal` on new blocks for scroll animations.
+
+## Optional: Splash + Dance & Aerial (hidden)
+
+A split-screen splash (Acting | Dance & Aerial) and a separate Dance page are included but **hidden** so the live site stays acting-only. The files are renamed so they aren’t served:
+
+- `splash.html.off` — split landing (Acting | Dance & Aerial)
+- `dance.html.off` — Dance & Aerial page with movement section
+
+**To re-enable:** Rename `splash.html.off` → `splash.html` and `dance.html.off` → `dance.html`. Visitors can then open `/splash.html` to see the split; “Acting” goes to `index.html`, “Dance & Aerial” to `dance.html`.  
+**To use the splash as the main entry:** Rename `index.html` → `acting.html`, then `splash.html.off` → `index.html`, and in the new `index.html` change the Acting panel link from `index.html` to `acting.html`.
 
 ## File structure
 
@@ -105,11 +115,14 @@ actor-website/
 ├── js/
 │   └── main.js
 ├── assets/
-│   ├── README.md
-│   ├── hero.jpg
-│   ├── about.jpg
-│   ├── reel.mp4
-│   └── headshot-1.jpg … headshot-6.jpg
+│   ├── acting/
+│   │   ├── README.md
+│   │   ├── hero.jpg, about.jpg, reel.mp4
+│   │   ├── headshot-1.jpg … headshot-6.jpg
+│   │   ├── resume.pdf, rtslogo.webp, mickey-on-stage-logo.svg
+│   │   └── …
+│   └── dance/
+│       └── README.md  (add video/stills for dance page)
 └── README.md
 ```
 

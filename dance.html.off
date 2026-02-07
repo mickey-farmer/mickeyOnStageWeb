@@ -16,7 +16,7 @@
   <header class="site-header" id="header">
     <nav class="nav" aria-label="Main">
       <a href="splash.html" class="nav-logo" aria-label="Mickey Farmer — Home">
-        <img src="assets/mickey-on-stage-logo.svg" alt="Mickey On Stage" class="nav-logo-img">
+        <img src="assets/acting/mickey-on-stage-logo.svg" alt="Mickey On Stage" class="nav-logo-img">
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Acting</a></li>
@@ -46,7 +46,7 @@
             <p class="movement-caption">Dance</p>
           </div>
         </div>
-        <p class="movement-note" data-reveal>Add video or stills in <code>assets/</code> and wire up here when ready.</p>
+        <p class="movement-note" data-reveal>Add video or stills in <code>assets/dance/</code> and wire up here when ready.</p>
         <p data-reveal><a href="index.html#contact" class="btn btn-primary">Get in touch</a></p>
       </div>
     </section>
@@ -55,7 +55,7 @@
   <footer class="site-footer">
     <div class="container">
       <a href="splash.html" class="footer-logo" aria-label="Mickey On Stage — Home">
-        <img src="assets/mickey-on-stage-logo.svg" alt="Mickey On Stage">
+        <img src="assets/acting/mickey-on-stage-logo.svg" alt="Mickey On Stage">
       </a>
       <p>&copy; <span id="year"></span> Mickey Farmer. All rights reserved.</p>
     </div>

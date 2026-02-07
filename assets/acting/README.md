@@ -1,6 +1,6 @@
-# Assets
+# Acting assets
 
-Place your media files here so the site can use them:
+Place acting-site media files here (`assets/acting/`). The site references these paths:
 
 | File | Use |
 |------|-----|
