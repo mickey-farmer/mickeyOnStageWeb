@@ -374,6 +374,18 @@ section {
   color: var(--text-muted);
   max-width: 52ch;
 }
+.about-production-note {
+  margin: 1.25rem 0 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 52ch;
+  line-height: 1.5;
+}
+.about-production-note strong {
+  color: var(--text);
+}
 .about-text .btn {
   margin-top: 1.5rem;
 }
