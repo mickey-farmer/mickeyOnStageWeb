@@ -774,54 +774,6 @@ section {
   outline-offset: 3px;
 }
 
-/* ----- Theme picker (testing) ----- */
-.theme-picker {
-  position: fixed;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 1001;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-.theme-picker-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-}
-.theme-picker-options {
-  display: flex;
-  gap: 0.25rem;
-}
-.theme-picker-btn {
-  padding: 0.35rem 0.6rem;
-  font-size: 0.8rem;
-  font-family: var(--font-body);
-  font-weight: 500;
-  color: var(--text-muted);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
-}
-.theme-picker-btn:hover {
-  color: var(--text);
-  border-color: var(--accent);
-}
-.theme-picker-btn.active {
-  color: var(--bg);
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
 /* ----- Sticky CTA pills ----- */
 .cta-pills {
   position: fixed;
