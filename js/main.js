@@ -20,6 +20,17 @@
   window.addEventListener("scroll", updateHeader, { passive: true });
   updateHeader();
 
+  // ----- Sticky CTA pills: show after scrolling past hero -----
+  const ctaPills = document.querySelector(".cta-pills");
+  const heroHeight = function () { return window.innerHeight * 0.7; };
+  function updateCtaPills() {
+    if (ctaPills) {
+      ctaPills.classList.toggle("visible", window.scrollY > heroHeight());
+    }
+  }
+  window.addEventListener("scroll", updateCtaPills, { passive: true });
+  updateCtaPills();
+
   // ----- Mobile nav toggle -----
   if (navToggle && navLinks) {
     navToggle.addEventListener("click", function () {
