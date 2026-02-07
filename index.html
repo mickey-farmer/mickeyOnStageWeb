@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mickey Farmer — Actor. Reel, credits, and representation.">
+  <title>Mickey Farmer | Actor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Main">
+      <a href="#hero" class="nav-logo">MF</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#reel">Reel</a></li>
+        <li><a href="#credits">Credits</a></li>
+        <li><a href="#photos">Photos</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-image" data-headshot></div>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-label" data-animate>Actor</p>
+        <h1 class="hero-title" data-animate>Mickey Farmer</h1>
+        <p class="hero-tagline" data-animate>Film · Television · Stage</p>
+        <a href="#reel" class="btn btn-primary" data-animate>
+          <span>Watch Reel</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-scroll" data-animate>
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image-wrap" data-reveal>
+            <div class="about-image" data-headshot-alt></div>
+          </div>
+          <div class="about-text">
+            <h2 class="section-label" data-reveal>About</h2>
+            <h3 class="about-headline" data-reveal>Bringing characters to life.</h3>
+            <div class="about-bio" data-reveal>
+              <p>Mickey Farmer is an actor based in [Your City]. With training in [e.g. film, theater, improv] and credits across film, television, and stage, Mickey brings depth, authenticity, and range to every role.</p>
+              <p>From drama to comedy, period to contemporary, Mickey is committed to the craft and to collaboration—making every project and every set a place where story comes first.</p>
+            </div>
+            <a href="#contact" class="btn btn-outline" data-reveal>Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reel" id="reel">
+      <div class="reel-bg"></div>
+      <div class="container">
+        <h2 class="section-label" data-reveal>Reel</h2>
+        <h3 class="reel-headline" data-reveal>Selected work</h3>
+        <div class="reel-player-wrap" data-reveal>
+          <div class="reel-aspect">
+            <video
+              class="reel-video"
+              src="assets/reel.mp4"
+              poster="assets/poster.jpg"
+              controls
+              playsinline
+              preload="metadata"
+            ></video>
+            <div class="reel-placeholder" data-reel-placeholder>
+              <button type="button" class="reel-play" aria-label="Play reel">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="40" fill="currentColor" fill-opacity="0.2"/><path d="M34 28l20 12-20 12V28z" fill="currentColor"/></svg>
+              </button>
+              <p>Mickey Farmer — Demo Reel</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="credits" id="credits">
+      <div class="container">
+        <h2 class="section-label" data-reveal>Credits</h2>
+        <h3 class="credits-headline" data-reveal>Film &amp; television</h3>
+        <div class="credits-list" data-reveal>
+          <article class="credit-item">
+            <span class="credit-role">[Role]</span>
+            <span class="credit-title">[Project Title]</span>
+            <span class="credit-type">Film</span>
+          </article>
+          <article class="credit-item">
+            <span class="credit-role">[Role]</span>
+            <span class="credit-title">[Project Title]</span>
+            <span class="credit-type">TV</span>
+          </article>
+          <article class="credit-item">
+            <span class="credit-role">[Role]</span>
+            <span class="credit-title">[Project Title]</span>
+            <span class="credit-type">Short</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="photos" id="photos">
+      <div class="container">
+        <h2 class="section-label" data-reveal>Photos</h2>
+        <h3 class="photos-headline" data-reveal>Headshots &amp; stills</h3>
+        <div class="gallery" data-reveal>
+          <div class="gallery-item" data-gallery-img="1"><div class="gallery-img"></div></div>
+          <div class="gallery-item" data-gallery-img="2"><div class="gallery-img"></div></div>
+          <div class="gallery-item" data-gallery-img="3"><div class="gallery-img"></div></div>
+          <div class="gallery-item" data-gallery-img="4"><div class="gallery-img"></div></div>
+          <div class="gallery-item" data-gallery-img="5"><div class="gallery-img"></div></div>
+          <div class="gallery-item" data-gallery-img="6"><div class="gallery-img"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-bg"></div>
+      <div class="container">
+        <h2 class="section-label" data-reveal>Contact</h2>
+        <h3 class="contact-headline" data-reveal>Let's work together.</h3>
+        <div class="contact-content" data-reveal>
+          <p>For bookings, representation inquiries, or press, reach out below.</p>
+          <div class="contact-links">
+            <a href="mailto:your@email.com" class="contact-link">your@email.com</a>
+            <a href="#" class="btn btn-primary">Send a message</a>
+          </div>
+          <p class="contact-rep">Representation: [Agent / Manager name &amp; contact]</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Mickey Farmer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
