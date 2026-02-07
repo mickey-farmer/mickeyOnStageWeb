@@ -701,6 +701,19 @@ section {
 .contact-link:hover {
   color: var(--accent-hover);
 }
+.contact-link-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.contact-icon {
+  flex-shrink: 0;
+  color: currentColor;
+}
+.contact-icon-instagram {
+  width: 1.15em;
+  height: 1.15em;
+}
 .contact-rep {
   font-size: 0.9rem;
   margin-top: 1.5rem !important;
