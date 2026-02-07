@@ -224,9 +224,9 @@ body {
 }
 .hero-logo img {
   display: block;
-  height: clamp(56px, 12vw, 96px);
+  height: clamp(80px, 22vw, 160px);
   width: auto;
-  max-width: 280px;
+  max-width: 420px;
   object-fit: contain;
 }
 .hero-buttons {
