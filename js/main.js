@@ -84,4 +84,34 @@
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  // ----- Theme picker (testing) -----
+  const themePicker = document.querySelector(".theme-picker");
+  const themeBtns = document.querySelectorAll(".theme-picker-btn");
+  const THEME_KEY = "mickey-theme";
+
+  function setTheme(theme) {
+    document.body.setAttribute("data-theme", theme || "gold");
+    if (theme) {
+      try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    } else {
+      try { localStorage.removeItem(THEME_KEY); } catch (e) {}
+    }
+    themeBtns.forEach(function (btn) {
+      const isActive = btn.getAttribute("data-theme") === (theme || "gold");
+      btn.setAttribute("aria-pressed", isActive);
+      btn.classList.toggle("active", isActive);
+    });
+  }
+
+  if (themePicker && themeBtns.length) {
+    const saved = (function () { try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; } })();
+    setTheme(saved || document.body.getAttribute("data-theme") || "gold");
+
+    themeBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setTheme(btn.getAttribute("data-theme"));
+      });
+    });
+  }
 })();

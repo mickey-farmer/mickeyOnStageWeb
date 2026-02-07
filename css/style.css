@@ -3,7 +3,9 @@
    Cinematic, dark, conversion-focused
    ============================================ */
 
-:root {
+/* Default: black + gold. To try another theme, add data-theme="slate" | "blush" | "dusk" to <body> in index.html */
+:root,
+[data-theme="gold"] {
   --bg: #080808;
   --bg-elevated: #0f0f0f;
   --surface: #141414;
@@ -17,6 +19,42 @@
   --space: clamp(1rem, 4vw, 2.5rem);
   --container: min(92vw, 1200px);
   --header-h: 72px;
+}
+
+/* Slate — off-blue, cooler, slightly brighter mood */
+[data-theme="slate"] {
+  --bg: #0d1219;
+  --bg-elevated: #141c26;
+  --surface: #1a2433;
+  --text: #e8eef4;
+  --text-muted: #8fa3b8;
+  --accent: #6ba3d4;
+  --accent-hover: #8bbce0;
+  --border: rgba(232, 238, 244, 0.1);
+}
+
+/* Blush — warm black with muted red/coral accent */
+[data-theme="blush"] {
+  --bg: #0c0a0a;
+  --bg-elevated: #141212;
+  --surface: #1c1818;
+  --text: #f5f0ee;
+  --text-muted: #b8a8a4;
+  --accent: #c97b7b;
+  --accent-hover: #d99a9a;
+  --border: rgba(245, 240, 238, 0.09);
+}
+
+/* Dusk — warm blue-grey, soft coral; brighter than gold, not cold */
+[data-theme="dusk"] {
+  --bg: #12161c;
+  --bg-elevated: #1a1f28;
+  --surface: #222a36;
+  --text: #ebeef2;
+  --text-muted: #9ca8b8;
+  --accent: #d4a574;
+  --accent-hover: #e0b98d;
+  --border: rgba(235, 238, 242, 0.1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -191,10 +229,17 @@ body {
   transform: translateY(20px);
   animation: fadeUp 0.8s ease 0.2s forwards;
 }
-.hero-content .btn {
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.8s ease 0.35s forwards;
+}
+.hero-content .hero-buttons .btn {
+  margin: 0;
 }
 .hero-scroll {
   position: absolute;
@@ -422,6 +467,53 @@ section {
   font-size: 0.9em;
 }
 
+/* ----- Audio demos section — uncomment when #demos is visible -----
+.demos {
+  background: var(--bg);
+}
+.demos-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  margin: 0 0 1rem;
+}
+.demos-intro {
+  color: var(--text-muted);
+  margin: 0 0 2rem;
+  max-width: 52ch;
+}
+.demos-intro code {
+  background: var(--surface);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.demos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 640px;
+}
+.demo-item {
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.demo-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+.demo-player {
+  width: 100%;
+  height: 40px;
+  accent-color: var(--accent);
+}
+*/
+
 /* ----- Credits ----- */
 .credits-headline, .photos-headline {
   font-family: var(--font-display);
@@ -616,11 +708,14 @@ section {
 .contact-rts-logo {
   display: inline-block;
   margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
   line-height: 0;
+  background: #fff;
+  border-radius: 6px;
   transition: opacity 0.2s ease;
 }
 .contact-rts-logo:hover {
-  opacity: 0.85;
+  opacity: 0.9;
 }
 .contact-rts-logo img {
   display: block;
@@ -647,6 +742,54 @@ section {
 .contact-rts-logo:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+/* ----- Theme picker (testing) ----- */
+.theme-picker {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.theme-picker-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+.theme-picker-options {
+  display: flex;
+  gap: 0.25rem;
+}
+.theme-picker-btn {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.theme-picker-btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.theme-picker-btn.active {
+  color: var(--bg);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 /* ----- Responsive ----- */

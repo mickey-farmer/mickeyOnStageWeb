@@ -13,6 +13,16 @@
 <body>
   <div class="noise" aria-hidden="true"></div>
 
+  <div class="theme-picker" aria-label="Theme switcher (for testing)">
+    <span class="theme-picker-label">Theme</span>
+    <div class="theme-picker-options">
+      <button type="button" class="theme-picker-btn" data-theme="gold" aria-pressed="true">Gold</button>
+      <button type="button" class="theme-picker-btn" data-theme="slate" aria-pressed="false">Slate</button>
+      <button type="button" class="theme-picker-btn" data-theme="blush" aria-pressed="false">Blush</button>
+      <button type="button" class="theme-picker-btn" data-theme="dusk" aria-pressed="false">Dusk</button>
+    </div>
+  </div>
+
   <header class="site-header" id="header">
     <nav class="nav" aria-label="Main">
       <a href="#hero" class="nav-logo">MF</a>
@@ -39,10 +49,18 @@
         <p class="hero-label" data-animate>Actor</p>
         <h1 class="hero-title" data-animate>Mickey Farmer</h1>
         <p class="hero-tagline" data-animate>Film · Television · Stage</p>
-        <a href="#reel" class="btn btn-primary" data-animate>
-          <span>Watch Reel</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <div class="hero-buttons" data-animate>
+          <a href="#reel" class="btn btn-primary">
+            <span>Watch Reel</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <!-- Hear Demos button (uncomment when #demos section is visible)
+          <a href="#demos" class="btn btn-outline">
+            <span>Hear Demos</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M6 8v8M18 8v8"/></svg>
+          </a>
+          -->
+        </div>
       </div>
       <div class="hero-scroll" data-animate>
         <span>Scroll</span>
@@ -94,6 +112,30 @@
         </div>
       </div>
     </section>
+
+    <!-- AUDIO DEMOS SECTION (hidden — uncomment when ready)
+    <section class="demos" id="demos">
+      <div class="container">
+        <h2 class="section-label" data-reveal>Voice</h2>
+        <h3 class="demos-headline" data-reveal>Audio demos</h3>
+        <p class="demos-intro" data-reveal>Voice-over and character demos. Add your audio files to <code>assets/</code> and update the <code>src</code> below.</p>
+        <div class="demos-list" data-reveal>
+          <div class="demo-item">
+            <h4 class="demo-title">Commercial / Narration</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/demo-commercial.mp3"></audio>
+          </div>
+          <div class="demo-item">
+            <h4 class="demo-title">Character / Animation</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/demo-character.mp3"></audio>
+          </div>
+          <div class="demo-item">
+            <h4 class="demo-title">Another demo</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/demo-other.mp3"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+    -->
 
     <section class="credits" id="credits">
       <div class="container">
