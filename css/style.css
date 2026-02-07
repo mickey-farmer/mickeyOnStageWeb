@@ -190,7 +190,7 @@ body {
   position: absolute;
   inset: 0;
   background: var(--surface) center center / cover no-repeat;
-  background-image: url("../assets/hero.jpg");
+  background-image: url("../assets/acting/hero.jpg");
 }
 .hero-overlay {
   position: absolute;
@@ -358,7 +358,7 @@ section {
   position: absolute;
   inset: 0;
   background: var(--surface) center center / cover no-repeat;
-  background-image: url("../assets/about.jpg");
+  background-image: url("../assets/acting/about.jpg");
   border: 1px solid var(--border);
 }
 .about-headline {
@@ -601,12 +601,12 @@ section {
 .gallery-item:hover .gallery-img {
   transform: scale(1.06);
 }
-[data-gallery-img="1"] .gallery-img { background-image: url("../assets/headshot-1.jpg"); }
-[data-gallery-img="2"] .gallery-img { background-image: url("../assets/headshot-2.jpg"); }
-[data-gallery-img="3"] .gallery-img { background-image: url("../assets/headshot-3.jpg"); }
-[data-gallery-img="4"] .gallery-img { background-image: url("../assets/headshot-4.jpg"); }
-[data-gallery-img="5"] .gallery-img { background-image: url("../assets/headshot-5.jpg"); }
-[data-gallery-img="6"] .gallery-img { background-image: url("../assets/headshot-6.jpg"); }
+[data-gallery-img="1"] .gallery-img { background-image: url("../assets/acting/headshot-1.jpg"); }
+[data-gallery-img="2"] .gallery-img { background-image: url("../assets/acting/headshot-2.jpg"); }
+[data-gallery-img="3"] .gallery-img { background-image: url("../assets/acting/headshot-3.jpg"); }
+[data-gallery-img="4"] .gallery-img { background-image: url("../assets/acting/headshot-4.jpg"); }
+[data-gallery-img="5"] .gallery-img { background-image: url("../assets/acting/headshot-5.jpg"); }
+[data-gallery-img="6"] .gallery-img { background-image: url("../assets/acting/headshot-6.jpg"); }
 
 /* ----- Movement (Dance & Aerial) ----- */
 .movement {
@@ -904,7 +904,7 @@ section {
   margin-top: 0;
 }
 .splash-panel-acting .splash-panel-bg {
-  background-image: url("../assets/hero.jpg");
+  background-image: url("../assets/acting/hero.jpg");
 }
 .splash-panel-dance .splash-panel-bg {
   background: var(--bg-elevated);
