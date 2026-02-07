@@ -710,7 +710,8 @@ section {
   flex-shrink: 0;
   color: currentColor;
 }
-.contact-icon-instagram {
+.contact-icon-instagram,
+.contact-icon-imdb {
   width: 1.15em;
   height: 1.15em;
 }
