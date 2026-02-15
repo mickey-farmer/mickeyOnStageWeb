@@ -72,6 +72,27 @@
     });
   });
 
+  // ----- Photos tabs (Headshots | Feed) -----
+  const photosTabs = document.querySelector(".photos-tabs");
+  if (photosTabs) {
+    const tabs = photosTabs.querySelectorAll(".photos-tab");
+    const panels = photosTabs.querySelectorAll(".photos-panel");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        const targetId = tab.getAttribute("aria-controls");
+        tabs.forEach(function (t) {
+          t.classList.toggle("is-active", t === tab);
+          t.setAttribute("aria-selected", t === tab);
+        });
+        panels.forEach(function (panel) {
+          const isActive = panel.id === targetId;
+          panel.classList.toggle("is-active", isActive);
+          panel.hidden = !isActive;
+        });
+      });
+    });
+  }
+
   // ----- Reveal on scroll -----
   const revealEls = document.querySelectorAll("[data-reveal]");
   const revealObserver = new IntersectionObserver(

@@ -602,6 +602,43 @@ section {
 .photos {
   background: var(--bg);
 }
+/* Tabbed photos (Headshots | Feed) */
+.photos-tabs .photos-headline {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.photos-tab {
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: -1px;
+}
+.photos-tab:hover {
+  color: var(--text);
+}
+.photos-tab.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.photos-tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.photos-panel {
+  display: none;
+}
+.photos-panel.is-active {
+  display: block;
+}
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -634,6 +671,71 @@ section {
 [data-gallery-img="4"] .gallery-img { background-image: url("../assets/acting/headshot-4.jpg"); }
 [data-gallery-img="5"] .gallery-img { background-image: url("../assets/acting/headshot-5.jpg"); }
 [data-gallery-img="6"] .gallery-img { background-image: url("../assets/acting/headshot-6.jpg"); }
+
+/* ----- Instagram ----- */
+.instagram {
+  background: var(--bg);
+}
+.instagram-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+.instagram-intro {
+  margin: 0 0 1.5rem;
+}
+.instagram-handle {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.instagram-handle:hover {
+  color: var(--accent-hover);
+  text-decoration: underline;
+}
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.instagram-item {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.instagram-item:hover {
+  border-color: rgba(201, 123, 123, 0.4);
+  transform: scale(1.02);
+}
+.instagram-item-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--surface) center center / cover no-repeat;
+  transition: transform 0.4s ease;
+}
+.instagram-item:hover .instagram-item-bg {
+  transform: scale(1.06);
+}
+/* Optional: add instagram-1.jpg … instagram-6.jpg to assets/instagram/ */
+.instagram-item-bg[data-insta="1"] { background-image: url("../assets/instagram/instagram-1.jpg"); }
+.instagram-item-bg[data-insta="2"] { background-image: url("../assets/instagram/instagram-2.jpg"); }
+.instagram-item-bg[data-insta="3"] { background-image: url("../assets/instagram/instagram-3.jpg"); }
+.instagram-item-bg[data-insta="4"] { background-image: url("../assets/instagram/instagram-4.jpg"); }
+.instagram-item-bg[data-insta="5"] { background-image: url("../assets/instagram/instagram-5.jpg"); }
+.instagram-item-bg[data-insta="6"] { background-image: url("../assets/instagram/instagram-6.jpg"); }
+.instagram-widget-wrap {
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+}
+.instagram-cta {
+  margin: 0;
+}
 
 /* ----- Movement (Dance & Aerial) ----- */
 .movement {
@@ -1089,7 +1191,8 @@ section {
   .credit-role {
     grid-column: 1 / -1;
   }
-  .gallery {
+  .gallery,
+  .instagram-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1126,7 +1229,8 @@ section {
 }
 
 @media (max-width: 480px) {
-  .gallery {
+  .gallery,
+  .instagram-grid {
     grid-template-columns: 1fr;
   }
   .contact-links {

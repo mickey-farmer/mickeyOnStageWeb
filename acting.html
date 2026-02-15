@@ -121,17 +121,30 @@
       </div>
     </section>
 
-    <section class="photos" id="photos">
+    <section class="photos photos-tabs" id="photos">
       <div class="container">
         <h2 class="section-label" data-reveal>Photos</h2>
-        <h3 class="photos-headline" data-reveal>Headshots &amp; stills</h3>
-        <div class="gallery" data-reveal>
-          <div class="gallery-item" data-gallery-img="1"><div class="gallery-img"></div></div>
-          <div class="gallery-item" data-gallery-img="2"><div class="gallery-img"></div></div>
-          <div class="gallery-item" data-gallery-img="3"><div class="gallery-img"></div></div>
-          <div class="gallery-item" data-gallery-img="4"><div class="gallery-img"></div></div>
-          <div class="gallery-item" data-gallery-img="5"><div class="gallery-img"></div></div>
-          <div class="gallery-item" data-gallery-img="6"><div class="gallery-img"></div></div>
+        <div class="photos-tablist-wrap" data-reveal>
+          <div class="photos-headline" role="tablist" aria-label="Photos view">
+            <button type="button" class="photos-tab is-active" role="tab" aria-selected="true" aria-controls="photos-panel-headshots" id="photos-tab-headshots">Headshots &amp; stills</button>
+            <button type="button" class="photos-tab" role="tab" aria-selected="false" aria-controls="photos-panel-feed" id="photos-tab-feed">Feed</button>
+          </div>
+        </div>
+        <div class="photos-panel is-active" id="photos-panel-headshots" role="tabpanel" aria-labelledby="photos-tab-headshots">
+          <div class="gallery" data-reveal>
+            <div class="gallery-item" data-gallery-img="1"><div class="gallery-img"></div></div>
+            <div class="gallery-item" data-gallery-img="2"><div class="gallery-img"></div></div>
+            <div class="gallery-item" data-gallery-img="3"><div class="gallery-img"></div></div>
+            <div class="gallery-item" data-gallery-img="4"><div class="gallery-img"></div></div>
+            <div class="gallery-item" data-gallery-img="5"><div class="gallery-img"></div></div>
+            <div class="gallery-item" data-gallery-img="6"><div class="gallery-img"></div></div>
+          </div>
+        </div>
+        <div class="photos-panel" id="photos-panel-feed" role="tabpanel" aria-labelledby="photos-tab-feed" hidden>
+          <div class="instagram-widget-wrap" data-reveal>
+            <div class="embedsocial-hashtag" data-ref="a88426beb86ae23182d483a7b334f7c098fab39a"></div>
+          </div>
+          <p class="instagram-cta" data-reveal><a href="https://instagram.com/mickeyonstage" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Follow on Instagram</a></p>
         </div>
       </div>
     </section>
@@ -185,5 +198,15 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function(d, s, id) {
+      var js;
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://embedsocial.com/cdn/ht.js";
+      d.getElementsByTagName("head")[0].appendChild(js);
+    }(document, "script", "EmbedSocialHashtagScript"));
+  </script>
 </body>
 </html>
