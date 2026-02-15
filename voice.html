@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mickey Farmer — Voice. Voice-over and character demos.">
+  <title>Voice | Mickey Farmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="blush">
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" class="nav-logo" aria-label="Mickey Farmer — Home">
+        <img src="assets/voice/mickey-on-stage-logo.svg" alt="Mickey On Stage" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="acting.html">Acting</a></li>
+        <li><a href="dance.html">Dance</a></li>
+        <li><a href="voice.html" class="nav-slice-active">Voice</a></li>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="acting.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="voice-hero" id="voice-hero">
+      <div class="voice-hero-bg"></div>
+      <div class="container">
+        <h1 class="section-label" data-reveal>Voice</h1>
+        <h2 class="voice-headline" data-reveal>Voice-over &amp; character demos.</h2>
+        <p class="voice-intro" data-reveal>Commercial, narration, animation, and character work. Add your audio files to <code>assets/voice/</code> and wire them up below.</p>
+      </div>
+    </section>
+
+    <section class="demos" id="demos">
+      <div class="container">
+        <h2 class="section-label" data-reveal>Demos</h2>
+        <h3 class="demos-headline" data-reveal>Listen</h3>
+        <div class="demos-list" data-reveal>
+          <div class="demo-item">
+            <h4 class="demo-title">Commercial / Narration</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/voice/demo-commercial.mp3"></audio>
+          </div>
+          <div class="demo-item">
+            <h4 class="demo-title">Character / Animation</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/voice/demo-character.mp3"></audio>
+          </div>
+          <div class="demo-item">
+            <h4 class="demo-title">Additional demo</h4>
+            <audio class="demo-player" controls preload="metadata" src="assets/voice/demo-other.mp3"></audio>
+          </div>
+        </div>
+        <p class="demos-note" data-reveal>Place your MP3 (or other) files in <code>assets/voice/</code> and update the <code>src</code> above. Add or remove <code>.demo-item</code> blocks as needed.</p>
+        <p data-reveal><a href="acting.html#contact" class="btn btn-primary">Get in touch</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="index.html" class="footer-logo" aria-label="Mickey On Stage — Home">
+        <img src="assets/voice/mickey-on-stage-logo.svg" alt="Mickey On Stage">
+      </a>
+      <p>&copy; <span id="year"></span> Mickey Farmer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -38,6 +38,8 @@
       navToggle.setAttribute("aria-expanded", !open);
       navLinks.classList.toggle("is-open", !open);
       document.body.style.overflow = open ? "" : "hidden";
+      // Slice dropdown — commented out
+      // navLinks.querySelectorAll(".nav-slice-dropdown").forEach(function (dd) { dd.classList.remove("is-open"); });
     });
     navLinks.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
@@ -47,6 +49,15 @@
       });
     });
   }
+
+  // ----- Slice dropdown — commented out; uncomment to re-enable -----
+  // var sliceTrigger = document.querySelector(".nav-slice-trigger");
+  // var sliceDropdown = document.querySelector(".nav-slice-dropdown");
+  // if (sliceTrigger && sliceDropdown) {
+  //   sliceTrigger.addEventListener("click", function (e) { e.stopPropagation(); var isOpen = sliceDropdown.classList.toggle("is-open"); sliceTrigger.setAttribute("aria-expanded", isOpen); });
+  //   sliceDropdown.querySelectorAll(".nav-slice-menu a").forEach(function (link) { link.addEventListener("click", function () { sliceDropdown.classList.remove("is-open"); sliceTrigger.setAttribute("aria-expanded", "false"); }); });
+  //   document.addEventListener("click", function (e) { if (sliceDropdown.contains(e.target)) return; sliceDropdown.classList.remove("is-open"); sliceTrigger.setAttribute("aria-expanded", "false"); });
+  // }
 
   // ----- Smooth scroll for anchor links -----
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
