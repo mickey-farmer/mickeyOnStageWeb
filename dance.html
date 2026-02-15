@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mickey Farmer — Dance & Aerial. Pole, aerial, and movement.">
+  <title>Dance & Aerial | Mickey Farmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="blush">
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" class="nav-logo" aria-label="Mickey Farmer — Home">
+        <img src="assets/dance/mickey-on-stage-logo.svg" alt="Mickey On Stage" class="nav-logo-img">
+      </a>
+      <ul class="nav-links">
+        <li><a href="acting.html">Acting</a></li>
+        <li><a href="dance.html" class="nav-slice-active">Dance</a></li>
+        <li><a href="voice.html">Voice</a></li>
+        <li><a href="writing.html">Writing</a></li>
+        <li><a href="acting.html#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="movement movement-page-hero" id="movement">
+      <div class="movement-bg"></div>
+      <div class="container">
+        <h1 class="section-label" data-reveal>Dance</h1>
+        <h2 class="movement-headline" data-reveal>Dance &amp; aerial.</h2>
+        <p class="movement-intro" data-reveal>Pole, aerial, and dance background — for roles that need physicality, choreography, or stunt-adjacent movement.</p>
+        <div class="movement-grid" data-reveal>
+          <div class="movement-item">
+            <div class="movement-placeholder"></div>
+            <p class="movement-caption">Pole / Aerial</p>
+          </div>
+          <div class="movement-item">
+            <div class="movement-placeholder"></div>
+            <p class="movement-caption">Dance</p>
+          </div>
+        </div>
+        <p class="movement-note" data-reveal>Add video or stills in <code>assets/dance/</code> and wire up here when ready.</p>
+        <p data-reveal><a href="acting.html#contact" class="btn btn-primary">Get in touch</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <a href="index.html" class="footer-logo" aria-label="Mickey On Stage — Home">
+        <img src="assets/dance/mickey-on-stage-logo.svg" alt="Mickey On Stage">
+      </a>
+      <p>&copy; <span id="year"></span> Mickey Farmer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
