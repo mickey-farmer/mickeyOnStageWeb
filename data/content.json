@@ -59,56 +59,76 @@
       {
         "project": "First Light",
         "role": "Supporting",
-        "director": "dir. Rorey Younge"
+        "director": "dir. Rorey Younge",
+        "synopsis": "A vampire teen attempts to date the local barista while two vampire hunters are after her.",
+        "genre": "Drama"
       },
       {
         "project": "Zellinial Discourse (Short)",
         "role": "Lead",
-        "director": "dir. Mickey Farmer"
+        "director": "dir. Mickey Farmer",
+        "synopsis": "A millennial manager struggles to communicate with his Gen-Z co-workers.",
+        "genre": "Comedy"
       },
       {
         "project": "In My Shoes (Short)",
         "role": "Lead",
-        "director": "dir. Rorey Younge, deadCenter Film"
+        "director": "dir. Rorey Younge, deadCenter Film",
+        "synopsis": "After switching places, two college students learn what it's like to live as one another for a day.",
+        "genre": "Comedy"
       },
       {
         "project": "Control (Short)",
         "role": "Lead",
-        "director": "dir. Nick Hodge, High Five Media"
+        "director": "dir. Nick Hodge, High Five Media",
+        "synopsis": "After the world's birth rate is reduced 80%, Sophia is selected to mate with Carson in a government-sanctioned \"pairing ceremony.\"",
+        "genre": "Drama"
       }
     ],
     "voice": [
       {
         "project": "The Parents Guide to Satanic Cults",
         "role": "Short Film",
-        "director": "Morgan Bryant"
+        "director": "Morgan Bryant",
+        "synopsis": "",
+        "genre": ""
       },
       {
         "project": "Percy Jackson and the Olympians: The Lightning Thief",
         "role": "Audiobook",
-        "director": "Comic Dubs"
+        "director": "Comic Dubs",
+        "synopsis": "",
+        "genre": ""
       }
     ],
     "theatre": [
       {
         "project": "Hairspray",
         "role": "Ensemble",
-        "director": "Clay White, DTC"
+        "director": "Clay White, DTC",
+        "synopsis": "",
+        "genre": ""
       },
       {
         "project": "Rodgers & Hammerstein's Cinderella",
         "role": "Ensemble",
-        "director": "Sharon Veselic, DTC"
+        "director": "Sharon Veselic, DTC",
+        "synopsis": "",
+        "genre": ""
       },
       {
         "project": "Grease",
         "role": "Kenickie",
-        "director": "Trina Harlow"
+        "director": "Trina Harlow",
+        "synopsis": "",
+        "genre": ""
       },
       {
         "project": "Hades & Persephone",
         "role": "Hermes",
-        "director": "Louise Smith"
+        "director": "Louise Smith",
+        "synopsis": "",
+        "genre": ""
       }
     ],
     "trainingOnCamera": [
