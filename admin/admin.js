@@ -147,8 +147,14 @@
       setVal("resume-imdb", data.resume.imdbUrl);
       setVal("resume-updated", data.resume.updatedDate);
       setVal("resume-film", data.resume.film && data.resume.film.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
+      setVal("resume-film-synopses", data.resume.film && data.resume.film.map(function (r) { return r.synopsis || ""; }).join("\n"));
+      setVal("resume-film-genres", data.resume.film && data.resume.film.map(function (r) { return r.genre || ""; }).join("\n"));
       setVal("resume-voice", data.resume.voice && data.resume.voice.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
+      setVal("resume-voice-synopses", data.resume.voice && data.resume.voice.map(function (r) { return r.synopsis || ""; }).join("\n"));
+      setVal("resume-voice-genres", data.resume.voice && data.resume.voice.map(function (r) { return r.genre || ""; }).join("\n"));
       setVal("resume-theatre", data.resume.theatre && data.resume.theatre.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
+      setVal("resume-theatre-synopses", data.resume.theatre && data.resume.theatre.map(function (r) { return r.synopsis || ""; }).join("\n"));
+      setVal("resume-theatre-genres", data.resume.theatre && data.resume.theatre.map(function (r) { return r.genre || ""; }).join("\n"));
       setVal("resume-training-oncamera", data.resume.trainingOnCamera && data.resume.trainingOnCamera.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
       setVal("resume-training-workshops", data.resume.trainingWorkshops && data.resume.trainingWorkshops.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
       setVal("resume-training-voice", data.resume.trainingVoice && data.resume.trainingVoice.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
@@ -174,12 +180,29 @@
     });
   }
 
+  function mergeSynopsisGenre(rows, synopsisText, genreText) {
+    var synopsisLines = (synopsisText || "").split("\n").map(function (s) { return s.trim(); });
+    var genreLines = (genreText || "").split("\n").map(function (s) { return s.trim(); });
+    return rows.map(function (row, i) {
+      return {
+        project: row.project,
+        role: row.role,
+        director: row.director,
+        synopsis: synopsisLines[i] || "",
+        genre: genreLines[i] || ""
+      };
+    });
+  }
+
   function getContentFromForm() {
     var galleryUrls = getVal("gallery-images").split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
     while (galleryUrls.length < 6) galleryUrls.push("");
-    var film = parseTableTextarea(getVal("resume-film"));
-    var voice = parseTableTextarea(getVal("resume-voice"));
-    var theatre = parseTableTextarea(getVal("resume-theatre"));
+    var filmRows = parseTableTextarea(getVal("resume-film"));
+    var voiceRows = parseTableTextarea(getVal("resume-voice"));
+    var theatreRows = parseTableTextarea(getVal("resume-theatre"));
+    var film = filmRows.length ? mergeSynopsisGenre(filmRows, getVal("resume-film-synopses"), getVal("resume-film-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
+    var voice = voiceRows.length ? mergeSynopsisGenre(voiceRows, getVal("resume-voice-synopses"), getVal("resume-voice-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
+    var theatre = theatreRows.length ? mergeSynopsisGenre(theatreRows, getVal("resume-theatre-synopses"), getVal("resume-theatre-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
     var to = parseTableTextarea(getVal("resume-training-oncamera"));
     var tw = parseTableTextarea(getVal("resume-training-workshops"));
     var tv = parseTableTextarea(getVal("resume-training-voice"));
@@ -229,9 +252,9 @@
         instagramHandle: getVal("resume-instagram") || "mickeyonstage",
         imdbUrl: getVal("resume-imdb"),
         updatedDate: getVal("resume-updated") || "February 2026",
-        film: film.length ? film : [{ project: "", role: "", director: "" }],
-        voice: voice.length ? voice : [{ project: "", role: "", director: "" }],
-        theatre: theatre.length ? theatre : [{ project: "", role: "", director: "" }],
+        film: film,
+        voice: voice,
+        theatre: theatre,
         trainingOnCamera: to.length ? to : [{ project: "", role: "", director: "" }],
         trainingWorkshops: tw.length ? tw : [{ project: "", role: "", director: "" }],
         trainingVoice: tv.length ? tv : [{ project: "", role: "", director: "" }],
