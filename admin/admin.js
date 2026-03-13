@@ -326,7 +326,14 @@
           var li = document.createElement("li");
           li.className = "assets-item";
           var path = item.path || (ASSETS_FOLDER + "/" + item.name);
-          li.innerHTML = "<span class=\"assets-item-name\" title=\"" + escapeAttr(path) + "\">" + escapeHtml(item.name) + "</span><button type=\"button\" class=\"assets-copy-btn\" data-path=\"" + escapeAttr(path) + "\">Copy path</button>";
+          var isImage = /\.(jpg|jpeg|png|gif|webp|svg|bmp)(\?|$)/i.test(item.name);
+          var thumbHtml = "";
+          if (isImage && item.download_url) {
+            thumbHtml = "<span class=\"assets-thumb-wrap\"><img class=\"assets-thumb\" src=\"" + escapeAttr(item.download_url) + "\" alt=\"\" loading=\"lazy\"></span>";
+          } else {
+            thumbHtml = "<span class=\"assets-thumb-wrap assets-thumb-placeholder\" title=\"" + escapeAttr(item.name) + "\">" + (item.name.split(".").pop() || "?") + "</span>";
+          }
+          li.innerHTML = thumbHtml + "<span class=\"assets-item-name\" title=\"" + escapeAttr(path) + "\">" + escapeHtml(item.name) + "</span><button type=\"button\" class=\"assets-copy-btn\" data-path=\"" + escapeAttr(path) + "\">Copy path</button>";
           if (assetsList) assetsList.appendChild(li);
         });
         if (assetsList && assetsList.children.length === 0) {
