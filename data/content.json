@@ -23,6 +23,7 @@
     "intro": "Full film, television, and voice credits — view the full resume or download as PDF."
   },
   "gallery": {
+    "instagramHandle": "mickeyonstage",
     "imageUrls": [
       "assets/acting/headshot-1.jpg",
       "assets/acting/headshot-2.jpg",
@@ -30,8 +31,7 @@
       "assets/acting/headshot-4.jpg",
       "assets/acting/headshot-5.jpg",
       "assets/acting/headshot-6.jpg"
-    ],
-    "instagramHandle": "mickeyonstage"
+    ]
   },
   "contact": {
     "headline": "Let's work together.",
@@ -42,8 +42,8 @@
     "repName": "Stephanie Powell",
     "repAgency": "Reel Talent Studio",
     "repEmail": "stephanie@reeltalentstudio.com",
-    "agencyLogoUrl": "assets/acting/rtslogo.webp",
-    "agencyWebsiteUrl": "https://www.reeltalentstudio.com/mickeyfarmer"
+    "agencyWebsiteUrl": "https://www.reeltalentstudio.com/mickeyfarmer",
+    "agencyLogoUrl": "assets/acting/rtslogo.webp"
   },
   "resume": {
     "name": "Mickey Farmer",
@@ -56,41 +56,132 @@
     "imdbUrl": "https://www.imdb.com/name/nm17592118/",
     "updatedDate": "February 2026",
     "film": [
-      { "project": "Zellinial Discourse (Short)", "role": "Lead", "director": "Mickey Farmer" },
-      { "project": "In My Shoes (Short)", "role": "Lead", "director": "Rorey Younge, deadCenter Film" },
-      { "project": "Control (Short)", "role": "Lead", "director": "Nick Hodge, High Five Media" }
+      {
+        "project": "First Light",
+        "role": "Supporting",
+        "director": "dir. Rorey Younge"
+      },
+      {
+        "project": "Zellinial Discourse (Short)",
+        "role": "Lead",
+        "director": "dir. Mickey Farmer"
+      },
+      {
+        "project": "In My Shoes (Short)",
+        "role": "Lead",
+        "director": "dir. Rorey Younge, deadCenter Film"
+      },
+      {
+        "project": "Control (Short)",
+        "role": "Lead",
+        "director": "dir. Nick Hodge, High Five Media"
+      }
     ],
     "voice": [
-      { "project": "The Parents Guide to Satanic Cults", "role": "Short Film", "director": "Morgan Bryant" },
-      { "project": "Percy Jackson and the Olympians: The Lightning Thief", "role": "Audiobook", "director": "Comic Dubs" }
+      {
+        "project": "The Parents Guide to Satanic Cults",
+        "role": "Short Film",
+        "director": "Morgan Bryant"
+      },
+      {
+        "project": "Percy Jackson and the Olympians: The Lightning Thief",
+        "role": "Audiobook",
+        "director": "Comic Dubs"
+      }
     ],
     "theatre": [
-      { "project": "Hairspray", "role": "Ensemble", "director": "Clay White, DTC" },
-      { "project": "Rodgers & Hammerstein's Cinderella", "role": "Ensemble", "director": "Sharon Veselic, DTC" },
-      { "project": "Grease", "role": "Kenickie", "director": "Trina Harlow" },
-      { "project": "Hades & Persephone", "role": "Hermes", "director": "Louise Smith" }
+      {
+        "project": "Hairspray",
+        "role": "Ensemble",
+        "director": "Clay White, DTC"
+      },
+      {
+        "project": "Rodgers & Hammerstein's Cinderella",
+        "role": "Ensemble",
+        "director": "Sharon Veselic, DTC"
+      },
+      {
+        "project": "Grease",
+        "role": "Kenickie",
+        "director": "Trina Harlow"
+      },
+      {
+        "project": "Hades & Persephone",
+        "role": "Hermes",
+        "director": "Louise Smith"
+      }
     ],
     "trainingOnCamera": [
-      { "project": "On-Camera Acting", "role": "Multiple instructors", "director": "OFA Studios" }
+      {
+        "project": "On-Camera Acting",
+        "role": "Multiple instructors",
+        "director": "OFA Studios"
+      }
     ],
     "trainingWorkshops": [
-      { "project": "Business for Actors", "role": "Kylr Coffman", "director": "OFA Studios" },
-      { "project": "Action for Actors — Level 2: Intro to Weapons", "role": "Justin Parks", "director": "OFA Studios, Range 405" },
-      { "project": "Action for Actors — Level 1 Stunts", "role": "Justin Parks, Branden Smith", "director": "OFA Studios, 1907 Stunts" },
-      { "project": "Script & Character Analysis", "role": "Willa Darian", "director": "OFA Studios" }
+      {
+        "project": "Business for Actors",
+        "role": "Kylr Coffman",
+        "director": "OFA Studios"
+      },
+      {
+        "project": "Action for Actors — Level 2: Intro to Weapons",
+        "role": "Justin Parks",
+        "director": "OFA Studios, Range 405"
+      },
+      {
+        "project": "Action for Actors — Level 1 Stunts",
+        "role": "Justin Parks, Branden Smith",
+        "director": "OFA Studios, 1907 Stunts"
+      },
+      {
+        "project": "Script & Character Analysis",
+        "role": "Willa Darian",
+        "director": "OFA Studios"
+      }
     ],
     "trainingVoice": [
-      { "project": "Voice Acting", "role": "Aaron Michael", "director": "Double AA Media" },
-      { "project": "Voice Acting for characters and video games", "role": "Jeremy Hall", "director": "Real Voice L.A." },
-      { "project": "Voice acting for characters", "role": "Tara Strong", "director": "Tara Strong's Voicelings" }
+      {
+        "project": "Voice Acting",
+        "role": "Aaron Michael",
+        "director": "Double AA Media"
+      },
+      {
+        "project": "Voice Acting for characters and video games",
+        "role": "Jeremy Hall",
+        "director": "Real Voice L.A."
+      },
+      {
+        "project": "Voice acting for characters",
+        "role": "Tara Strong",
+        "director": "Tara Strong's Voicelings"
+      }
     ],
     "skills": [
-      { "category": "Dance", "items": "Pole Dancing, Lyra, Split Silks, Aerial Hammock, Static Trapeze" },
-      { "category": "Sports", "items": "Ice Skating, Roller Skating, Swimming, Rock Climbing, Trampoline, Biking, Weight Lifting, Jump Rope, Archery" },
-      { "category": "Hobbies", "items": "Crochet, Cooking, Jewelry Making, Wig Styling, Drag Makeup, Sewing (hand & machine), Music Production (Logic Pro)" },
-      { "category": "Voice", "items": "Baritone · Accents: Texan, Southern, French" },
-      { "category": "Stunts", "items": "Jabs, Hooks, Physical reactions, Falls (from standing), Safety roll, Pole Assisted Inverted Drop (15 ft)" },
-      { "category": "Other", "items": "Valid driver's license and passport" }
+      {
+        "category": "Dance",
+        "items": "Pole Dancing, Lyra, Split Silks, Aerial Hammock, Static Trapeze"
+      },
+      {
+        "category": "Sports",
+        "items": "Ice Skating, Roller Skating, Swimming, Rock Climbing, Trampoline, Biking, Weight Lifting, Jump Rope, Archery"
+      },
+      {
+        "category": "Hobbies",
+        "items": "Crochet, Cooking, Jewelry Making, Wig Styling, Drag Makeup, Sewing (hand & machine), Music Production (Logic Pro)"
+      },
+      {
+        "category": "Voice",
+        "items": "Baritone · Accents: Texan, Southern, French"
+      },
+      {
+        "category": "Stunts",
+        "items": "Jabs, Hooks, Physical reactions, Falls (from standing), Safety roll, Pole Assisted Inverted Drop (15 ft)"
+      },
+      {
+        "category": "Other",
+        "items": "Valid driver's license and passport"
+      }
     ]
   }
 }
