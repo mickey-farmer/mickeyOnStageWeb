@@ -31,6 +31,16 @@ A custom, cinematic single-page actor site built with HTML, CSS, and JavaScript.
 4. **Preview**  
    Open `index.html` in a browser, or run a local server (e.g. `npx serve .` or `python3 -m http.server 8000`) to avoid CORS issues with video.
 
+## Admin portal
+
+An **admin portal** at `/admin` (e.g. `https://yoursite.com/admin/` or open `admin/index.html` locally) lets you edit all site content and the resume without touching code. There is no link to it from the public site.
+
+- **Login:** Open `/admin`, enter the admin password.
+- **Edit:** Use the sidebar (Hero, About, Reel, Credits, Gallery, Contact, Resume) to change text and image paths. The **live preview** iframe updates as you type.
+- **Save to GitHub:** In Settings (⚙), set your GitHub **personal access token** (with `repo` scope), **repo owner**, and **repo name**. Click **Save to GitHub** to commit `data/content.json` to the repo. The public site reads from this file.
+
+Content is stored in `data/content.json` and applied by `js/content.js`.
+
 ## Deployment with GitHub Pages
 
 This repo is set up so the **root of the repo** is the site root (e.g. `index.html` at top level). Use it as follows.
