@@ -437,7 +437,8 @@
       var copyBtn = document.getElementById('copy-email');
       if (copyBtn) {
         copyBtn.addEventListener('click', function() {
-          var email = 'stephaniepowell@reeltalentstudio.com';
+          var mailto = document.querySelector('.resume-contact a[href^="mailto:"]');
+          var email = (mailto && mailto.href) ? mailto.href.replace('mailto:', '').trim() : 'stephaniepowell@reeltalentstudio.com';
           if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(email).then(function() {
               copyBtn.textContent = 'Copied!';
@@ -486,5 +487,6 @@
     })();
   </script>
   <script src="js/main.js"></script>
+  <script src="js/content.js"></script>
 </body>
 </html>

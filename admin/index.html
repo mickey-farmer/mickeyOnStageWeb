@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Mickey On Stage</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="login-screen" class="screen">
+    <div class="login-box">
+      <h1>Admin</h1>
+      <p class="login-hint">Enter password to continue.</p>
+      <form id="login-form">
+        <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+        <button type="submit">Sign in</button>
+      </form>
+      <p id="login-error" class="error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="admin-screen" class="screen hidden">
+    <header class="admin-header">
+      <h1>Mickey On Stage — Admin</h1>
+      <div class="admin-actions">
+        <button type="button" id="refresh-preview" class="btn btn-ghost">Refresh preview</button>
+        <button type="button" id="save-github" class="btn btn-primary">Save to GitHub</button>
+        <button type="button" id="settings-btn" class="btn btn-ghost" aria-label="Settings">⚙</button>
+        <a href="../index.html" target="_blank" rel="noopener" class="btn btn-ghost">View site</a>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <nav class="admin-nav">
+          <button type="button" class="nav-item is-active" data-section="hero">Hero</button>
+          <button type="button" class="nav-item" data-section="about">About</button>
+          <button type="button" class="nav-item" data-section="reel">Reel</button>
+          <button type="button" class="nav-item" data-section="credits">Credits</button>
+          <button type="button" class="nav-item" data-section="gallery">Gallery</button>
+          <button type="button" class="nav-item" data-section="contact">Contact</button>
+          <button type="button" class="nav-item" data-section="resume">Resume</button>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="form-panel is-active" id="panel-hero">
+          <h2>Hero</h2>
+          <div class="field">
+            <label for="hero-image">Hero image path/URL</label>
+            <input type="text" id="hero-image" placeholder="assets/acting/hero.jpg">
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-about">
+          <h2>About</h2>
+          <div class="field">
+            <label for="about-headline">Headline</label>
+            <input type="text" id="about-headline" placeholder="Bringing characters to life.">
+          </div>
+          <div class="field">
+            <label for="about-bio1">Bio paragraph 1</label>
+            <textarea id="about-bio1" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label for="about-bio2">Bio paragraph 2</label>
+            <textarea id="about-bio2" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label for="about-production-note">Production note (leave blank to hide)</label>
+            <textarea id="about-production-note" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label for="about-image">About image path/URL</label>
+            <input type="text" id="about-image" placeholder="assets/acting/about.jpg">
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-reel">
+          <h2>Reel</h2>
+          <div class="field">
+            <label for="reel-headline">Headline</label>
+            <input type="text" id="reel-headline" placeholder="Selected work">
+          </div>
+          <div class="field">
+            <label for="reel-video">Video URL/path</label>
+            <input type="text" id="reel-video" placeholder="assets/acting/reel.mp4">
+          </div>
+          <div class="field">
+            <label for="reel-poster">Poster image path/URL</label>
+            <input type="text" id="reel-poster" placeholder="assets/acting/poster.jpg">
+          </div>
+          <div class="field">
+            <label for="reel-placeholder">Placeholder label</label>
+            <input type="text" id="reel-placeholder" placeholder="Mickey Farmer — Demo Reel">
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-credits">
+          <h2>Credits (home page)</h2>
+          <div class="field">
+            <label for="credits-headline">Headline</label>
+            <input type="text" id="credits-headline" placeholder="Resume">
+          </div>
+          <div class="field">
+            <label for="credits-intro">Intro text</label>
+            <textarea id="credits-intro" rows="2"></textarea>
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-gallery">
+          <h2>Gallery</h2>
+          <div class="field">
+            <label for="gallery-instagram">Instagram handle (no @)</label>
+            <input type="text" id="gallery-instagram" placeholder="mickeyonstage">
+          </div>
+          <p class="field-hint">Image paths (one per line, 1–6 for gallery slots)</p>
+          <div class="field">
+            <label for="gallery-images">Image paths</label>
+            <textarea id="gallery-images" rows="6" placeholder="assets/acting/headshot-1.jpg\n..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-contact">
+          <h2>Contact</h2>
+          <div class="field">
+            <label for="contact-headline">Headline</label>
+            <input type="text" id="contact-headline" placeholder="Let's work together.">
+          </div>
+          <div class="field">
+            <label for="contact-intro">Intro text</label>
+            <textarea id="contact-intro" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label for="contact-email">Email (primary CTA / Send a message)</label>
+            <input type="email" id="contact-email" placeholder="stephanie@reeltalentstudio.com">
+          </div>
+          <div class="field">
+            <label for="contact-instagram">Instagram handle</label>
+            <input type="text" id="contact-instagram" placeholder="mickeyonstage">
+          </div>
+          <div class="field">
+            <label for="contact-imdb">IMDb URL</label>
+            <input type="url" id="contact-imdb" placeholder="https://www.imdb.com/name/nm17592118/">
+          </div>
+          <div class="field">
+            <label for="contact-rep-name">Rep name</label>
+            <input type="text" id="contact-rep-name" placeholder="Stephanie Powell">
+          </div>
+          <div class="field">
+            <label for="contact-rep-agency">Rep agency</label>
+            <input type="text" id="contact-rep-agency" placeholder="Reel Talent Studio">
+          </div>
+          <div class="field">
+            <label for="contact-rep-email">Rep email</label>
+            <input type="email" id="contact-rep-email" placeholder="stephanie@reeltalentstudio.com">
+          </div>
+          <div class="field">
+            <label for="contact-agency-website">Agency website URL</label>
+            <input type="url" id="contact-agency-website" placeholder="https://www.reeltalentstudio.com/mickeyfarmer">
+          </div>
+          <div class="field">
+            <label for="contact-agency-logo">Agency logo path/URL</label>
+            <input type="text" id="contact-agency-logo" placeholder="assets/acting/rtslogo.webp">
+          </div>
+        </div>
+
+        <div class="form-panel" id="panel-resume">
+          <h2>Resume page</h2>
+          <div class="field">
+            <label for="resume-name">Name</label>
+            <input type="text" id="resume-name" placeholder="Mickey Farmer">
+          </div>
+          <div class="field">
+            <label for="resume-union">Union status</label>
+            <input type="text" id="resume-union" placeholder="Non-Union">
+          </div>
+          <div class="field">
+            <label for="resume-representation">Representation line</label>
+            <input type="text" id="resume-representation" placeholder="Represented by Reel Talent Studio">
+          </div>
+          <div class="field">
+            <label for="resume-phone">Phone</label>
+            <input type="tel" id="resume-phone" placeholder="918-527-7834">
+          </div>
+          <div class="field">
+            <label for="resume-email">Email (rep email for copy button)</label>
+            <input type="email" id="resume-email" placeholder="stephaniepowell@reeltalentstudio.com">
+          </div>
+          <div class="field">
+            <label for="resume-stats">Stats (hair, eyes, height)</label>
+            <input type="text" id="resume-stats" placeholder="Hair: Red · Eyes: Blue · Height: 6′3″">
+          </div>
+          <div class="field">
+            <label for="resume-instagram">Instagram handle</label>
+            <input type="text" id="resume-instagram" placeholder="mickeyonstage">
+          </div>
+          <div class="field">
+            <label for="resume-imdb">IMDb URL</label>
+            <input type="url" id="resume-imdb" placeholder="https://www.imdb.com/name/nm17592118/">
+          </div>
+          <div class="field">
+            <label for="resume-updated">Resume updated date</label>
+            <input type="text" id="resume-updated" placeholder="February 2026">
+          </div>
+          <h3>Film credits (one per line: Project | Role | Director)</h3>
+          <div class="field">
+            <textarea id="resume-film" rows="5"></textarea>
+          </div>
+          <h3>Voice credits</h3>
+          <div class="field">
+            <textarea id="resume-voice" rows="4"></textarea>
+          </div>
+          <h3>Theatre credits</h3>
+          <div class="field">
+            <textarea id="resume-theatre" rows="6"></textarea>
+          </div>
+          <h3>Training: On-Camera</h3>
+          <div class="field">
+            <textarea id="resume-training-oncamera" rows="3"></textarea>
+          </div>
+          <h3>Training: Workshops</h3>
+          <div class="field">
+            <textarea id="resume-training-workshops" rows="5"></textarea>
+          </div>
+          <h3>Training: Voice</h3>
+          <div class="field">
+            <textarea id="resume-training-voice" rows="4"></textarea>
+          </div>
+          <h3>Special skills (one per line: Category | Items)</h3>
+          <div class="field">
+            <textarea id="resume-skills" rows="8"></textarea>
+          </div>
+        </div>
+      </main>
+
+      <section class="admin-preview">
+        <div class="preview-toolbar">
+          <span>Live preview</span>
+          <div class="preview-links">
+            <button type="button" class="preview-link is-active" data-preview="index">Home</button>
+            <button type="button" class="preview-link" data-preview="resume">Resume</button>
+          </div>
+        </div>
+        <iframe id="preview-frame" title="Site preview" src="../index.html"></iframe>
+      </section>
+    </div>
+  </div>
+
+  <div id="settings-modal" class="modal hidden" role="dialog" aria-labelledby="settings-title" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <h2 id="settings-title">GitHub settings</h2>
+      <p class="modal-hint">Required to save changes. Token needs <code>repo</code> scope.</p>
+      <div class="field">
+        <label for="settings-token">GitHub personal access token</label>
+        <input type="password" id="settings-token" placeholder="ghp_xxxx" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="settings-owner">Repo owner (username or org)</label>
+        <input type="text" id="settings-owner" placeholder="username">
+      </div>
+      <div class="field">
+        <label for="settings-repo">Repo name</label>
+        <input type="text" id="settings-repo" placeholder="mickeyOnStageWeb">
+      </div>
+      <div class="field">
+        <label for="settings-branch">Branch</label>
+        <input type="text" id="settings-branch" value="main" placeholder="main">
+      </div>
+      <button type="button" id="settings-save" class="btn btn-primary">Save settings</button>
+      <button type="button" id="settings-close" class="btn btn-ghost">Cancel</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden" aria-live="polite"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

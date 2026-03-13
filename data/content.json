@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "heroImageUrl": "assets/acting/hero.jpg"
+  },
+  "about": {
+    "headline": "Bringing characters to life.",
+    "bioParagraphs": [
+      "Mickey Farmer is an actor based in Oklahoma City, OK. Film training at OFA Studios (Oklahoma City); theater at Booker T. Washington High School for the Performing and Visual Arts; voice acting with Double AA Media (Aaron Michael) and Real Voice LA.",
+      "A fearless approach to character—Mickey goes there. Loves ad-lib, comedy, horror, and drama, and brings that same commitment to every set and every collaboration."
+    ],
+    "productionNote": "Mickey is fully cleared for all visible tattoos. A Master Release (including irrevocable media appearance rights and waiver of droit moral) is available immediately upon request.",
+    "aboutImageUrl": "assets/acting/about.jpg"
+  },
+  "reel": {
+    "headline": "Selected work",
+    "videoUrl": "assets/acting/reel.mp4",
+    "posterUrl": "assets/acting/poster.jpg",
+    "placeholderLabel": "Mickey Farmer — Demo Reel"
+  },
+  "credits": {
+    "headline": "Resume",
+    "intro": "Full film, television, and voice credits — view the full resume or download as PDF."
+  },
+  "gallery": {
+    "imageUrls": [
+      "assets/acting/headshot-1.jpg",
+      "assets/acting/headshot-2.jpg",
+      "assets/acting/headshot-3.jpg",
+      "assets/acting/headshot-4.jpg",
+      "assets/acting/headshot-5.jpg",
+      "assets/acting/headshot-6.jpg"
+    ],
+    "instagramHandle": "mickeyonstage"
+  },
+  "contact": {
+    "headline": "Let's work together.",
+    "intro": "For bookings, representation inquiries, or press, reach out below.",
+    "email": "stephanie@reeltalentstudio.com",
+    "instagramHandle": "mickeyonstage",
+    "imdbUrl": "https://www.imdb.com/name/nm17592118/",
+    "repName": "Stephanie Powell",
+    "repAgency": "Reel Talent Studio",
+    "repEmail": "stephanie@reeltalentstudio.com",
+    "agencyLogoUrl": "assets/acting/rtslogo.webp",
+    "agencyWebsiteUrl": "https://www.reeltalentstudio.com/mickeyfarmer"
+  },
+  "resume": {
+    "name": "Mickey Farmer",
+    "unionStatus": "Non-Union",
+    "representation": "Represented by Reel Talent Studio",
+    "phone": "918-527-7834",
+    "email": "stephaniepowell@reeltalentstudio.com",
+    "stats": "Hair: Red · Eyes: Blue · Height: 6′3″",
+    "instagramHandle": "mickeyonstage",
+    "imdbUrl": "https://www.imdb.com/name/nm17592118/",
+    "updatedDate": "February 2026",
+    "film": [
+      { "project": "Zellinial Discourse (Short)", "role": "Lead", "director": "Mickey Farmer" },
+      { "project": "In My Shoes (Short)", "role": "Lead", "director": "Rorey Younge, deadCenter Film" },
+      { "project": "Control (Short)", "role": "Lead", "director": "Nick Hodge, High Five Media" }
+    ],
+    "voice": [
+      { "project": "The Parents Guide to Satanic Cults", "role": "Short Film", "director": "Morgan Bryant" },
+      { "project": "Percy Jackson and the Olympians: The Lightning Thief", "role": "Audiobook", "director": "Comic Dubs" }
+    ],
+    "theatre": [
+      { "project": "Hairspray", "role": "Ensemble", "director": "Clay White, DTC" },
+      { "project": "Rodgers & Hammerstein's Cinderella", "role": "Ensemble", "director": "Sharon Veselic, DTC" },
+      { "project": "Grease", "role": "Kenickie", "director": "Trina Harlow" },
+      { "project": "Hades & Persephone", "role": "Hermes", "director": "Louise Smith" }
+    ],
+    "trainingOnCamera": [
+      { "project": "On-Camera Acting", "role": "Multiple instructors", "director": "OFA Studios" }
+    ],
+    "trainingWorkshops": [
+      { "project": "Business for Actors", "role": "Kylr Coffman", "director": "OFA Studios" },
+      { "project": "Action for Actors — Level 2: Intro to Weapons", "role": "Justin Parks", "director": "OFA Studios, Range 405" },
+      { "project": "Action for Actors — Level 1 Stunts", "role": "Justin Parks, Branden Smith", "director": "OFA Studios, 1907 Stunts" },
+      { "project": "Script & Character Analysis", "role": "Willa Darian", "director": "OFA Studios" }
+    ],
+    "trainingVoice": [
+      { "project": "Voice Acting", "role": "Aaron Michael", "director": "Double AA Media" },
+      { "project": "Voice Acting for characters and video games", "role": "Jeremy Hall", "director": "Real Voice L.A." },
+      { "project": "Voice acting for characters", "role": "Tara Strong", "director": "Tara Strong's Voicelings" }
+    ],
+    "skills": [
+      { "category": "Dance", "items": "Pole Dancing, Lyra, Split Silks, Aerial Hammock, Static Trapeze" },
+      { "category": "Sports", "items": "Ice Skating, Roller Skating, Swimming, Rock Climbing, Trampoline, Biking, Weight Lifting, Jump Rope, Archery" },
+      { "category": "Hobbies", "items": "Crochet, Cooking, Jewelry Making, Wig Styling, Drag Makeup, Sewing (hand & machine), Music Production (Logic Pro)" },
+      { "category": "Voice", "items": "Baritone · Accents: Texan, Southern, French" },
+      { "category": "Stunts", "items": "Jabs, Hooks, Physical reactions, Falls (from standing), Safety roll, Pole Assisted Inverted Drop (15 ft)" },
+      { "category": "Other", "items": "Valid driver's license and passport" }
+    ]
+  }
+}
