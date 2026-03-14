@@ -146,18 +146,18 @@
       setVal("resume-instagram", data.resume.instagramHandle ? data.resume.instagramHandle.replace(/^@/, "") : "");
       setVal("resume-imdb", data.resume.imdbUrl);
       setVal("resume-updated", data.resume.updatedDate);
-      setVal("resume-film", data.resume.film && data.resume.film.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
-      setVal("resume-film-synopses", data.resume.film && data.resume.film.map(function (r) { return r.synopsis || ""; }).join("\n"));
-      setVal("resume-film-genres", data.resume.film && data.resume.film.map(function (r) { return r.genre || ""; }).join("\n"));
-      setVal("resume-voice", data.resume.voice && data.resume.voice.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
-      setVal("resume-voice-synopses", data.resume.voice && data.resume.voice.map(function (r) { return r.synopsis || ""; }).join("\n"));
-      setVal("resume-voice-genres", data.resume.voice && data.resume.voice.map(function (r) { return r.genre || ""; }).join("\n"));
-      setVal("resume-theatre", data.resume.theatre && data.resume.theatre.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
-      setVal("resume-theatre-synopses", data.resume.theatre && data.resume.theatre.map(function (r) { return r.synopsis || ""; }).join("\n"));
-      setVal("resume-theatre-genres", data.resume.theatre && data.resume.theatre.map(function (r) { return r.genre || ""; }).join("\n"));
-      setVal("resume-training-oncamera", data.resume.trainingOnCamera && data.resume.trainingOnCamera.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
-      setVal("resume-training-workshops", data.resume.trainingWorkshops && data.resume.trainingWorkshops.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
-      setVal("resume-training-voice", data.resume.trainingVoice && data.resume.trainingVoice.map(function (r) { return [r.project, r.role, r.director].join("\t"); }).join("\n"));
+      var sections = data.resume.sections && Array.isArray(data.resume.sections) && data.resume.sections.length
+        ? data.resume.sections
+        : [
+            data.resume.film && data.resume.film.length ? { title: "Film", rows: data.resume.film } : null,
+            data.resume.voice && data.resume.voice.length ? { title: "Voice", rows: data.resume.voice } : null,
+            data.resume.theatre && data.resume.theatre.length ? { title: "Theatre", rows: data.resume.theatre } : null,
+            data.resume.trainingOnCamera && data.resume.trainingOnCamera.length ? { title: "Training: On-Camera", rows: data.resume.trainingOnCamera } : null,
+            data.resume.trainingWorkshops && data.resume.trainingWorkshops.length ? { title: "Training: Workshops", rows: data.resume.trainingWorkshops } : null,
+            data.resume.trainingVoice && data.resume.trainingVoice.length ? { title: "Training: Voice", rows: data.resume.trainingVoice } : null
+          ].filter(Boolean);
+      if (!sections.length) sections = [{ title: "Film", rows: [] }, { title: "Voice", rows: [] }, { title: "Theatre", rows: [] }];
+      renderResumeSections(sections);
       setVal("resume-skills", data.resume.skills && data.resume.skills.map(function (s) { return [s.category, s.items].join("\t"); }).join("\n"));
     }
   }
@@ -180,32 +180,101 @@
     });
   }
 
-  function mergeSynopsisGenre(rows, synopsisText, genreText) {
-    var synopsisLines = (synopsisText || "").split("\n").map(function (s) { return s.trim(); });
-    var genreLines = (genreText || "").split("\n").map(function (s) { return s.trim(); });
-    return rows.map(function (row, i) {
-      return {
-        project: row.project,
-        role: row.role,
-        director: row.director,
-        synopsis: synopsisLines[i] || "",
-        genre: genreLines[i] || ""
+  var resumeSectionsContainer = document.getElementById("resume-sections-admin");
+  var resumeAddSectionBtn = document.getElementById("resume-add-section");
+
+  function makeResumeRowEl(row) {
+    row = row || { project: "", role: "", director: "", synopsis: "", genre: "" };
+    var div = document.createElement("div");
+    div.className = "resume-row-card";
+    div.innerHTML = "<div class=\"resume-row-fields\">" +
+      "<input type=\"text\" class=\"resume-row-project\" placeholder=\"Project\" value=\"" + escapeAttr(row.project) + "\">" +
+      "<input type=\"text\" class=\"resume-row-role\" placeholder=\"Role\" value=\"" + escapeAttr(row.role) + "\">" +
+      "<input type=\"text\" class=\"resume-row-director\" placeholder=\"Director / Studio\" value=\"" + escapeAttr(row.director) + "\">" +
+      "<textarea class=\"resume-row-synopsis\" placeholder=\"Synopsis (tooltip)\" rows=\"2\">" + escapeHtml(row.synopsis || "") + "</textarea>" +
+      "<input type=\"text\" class=\"resume-row-genre\" placeholder=\"Genre\" value=\"" + escapeAttr(row.genre || "") + "\">" +
+      "</div><button type=\"button\" class=\"resume-row-remove btn btn-ghost\" aria-label=\"Remove row\">Remove</button>";
+    return div;
+  }
+
+  function makeSectionBlockEl(section) {
+    section = section || { title: "New section", rows: [] };
+    var div = document.createElement("div");
+    div.className = "resume-section-block";
+    var titleVal = escapeAttr(section.title || "New section");
+    div.innerHTML = "<div class=\"resume-section-block-head\"><input type=\"text\" class=\"resume-section-title-input\" placeholder=\"Section title (e.g. Film, Voice, Theatre)\" value=\"" + titleVal + "\"><button type=\"button\" class=\"resume-section-remove btn btn-ghost\" aria-label=\"Remove section\">Remove section</button></div><div class=\"resume-rows-container\"></div><button type=\"button\" class=\"resume-add-row btn btn-ghost\">+ Add row</button>";
+    var rowsContainer = div.querySelector(".resume-rows-container");
+    (section.rows || []).forEach(function (r) { rowsContainer.appendChild(makeResumeRowEl(r)); });
+    if (!(section.rows && section.rows.length)) rowsContainer.appendChild(makeResumeRowEl());
+    return div;
+  }
+
+  function renderResumeSections(sections) {
+    if (!resumeSectionsContainer) return;
+    resumeSectionsContainer.innerHTML = "";
+    (sections || []).forEach(function (sec) {
+      resumeSectionsContainer.appendChild(makeSectionBlockEl(sec));
+    });
+    bindResumeSectionEvents();
+  }
+
+  function bindResumeSectionEvents() {
+    if (!resumeSectionsContainer) return;
+    resumeSectionsContainer.querySelectorAll(".resume-add-row").forEach(function (btn) {
+      btn.onclick = function () {
+        var block = btn.closest(".resume-section-block");
+        var container = block && block.querySelector(".resume-rows-container");
+        if (container) container.appendChild(makeResumeRowEl());
       };
     });
+    resumeSectionsContainer.querySelectorAll(".resume-row-remove").forEach(function (btn) {
+      btn.onclick = function () {
+        var row = btn.closest(".resume-row-card");
+        var container = row && row.parentElement;
+        if (container && container.querySelectorAll(".resume-row-card").length > 1) row.remove();
+      };
+    });
+    resumeSectionsContainer.querySelectorAll(".resume-section-remove").forEach(function (btn) {
+      btn.onclick = function () {
+        var block = btn.closest(".resume-section-block");
+        if (block && resumeSectionsContainer.querySelectorAll(".resume-section-block").length > 1) block.remove();
+      };
+    });
+  }
+
+  if (resumeAddSectionBtn) {
+    resumeAddSectionBtn.addEventListener("click", function () {
+      if (!resumeSectionsContainer) return;
+      resumeSectionsContainer.appendChild(makeSectionBlockEl({ title: "New section", rows: [] }));
+      bindResumeSectionEvents();
+    });
+  }
+
+  function getResumeSectionsFromAdmin() {
+    if (!resumeSectionsContainer) return [];
+    var out = [];
+    resumeSectionsContainer.querySelectorAll(".resume-section-block").forEach(function (block) {
+      var titleInput = block.querySelector(".resume-section-title-input");
+      var title = titleInput ? titleInput.value.trim() || "Section" : "Section";
+      var rows = [];
+      block.querySelectorAll(".resume-row-card").forEach(function (card) {
+        var project = (card.querySelector(".resume-row-project") || {}).value || "";
+        var role = (card.querySelector(".resume-row-role") || {}).value || "";
+        var director = (card.querySelector(".resume-row-director") || {}).value || "";
+        var synopsis = (card.querySelector(".resume-row-synopsis") || {}).value || "";
+        var genre = (card.querySelector(".resume-row-genre") || {}).value || "";
+        rows.push({ project: project, role: role, director: director, synopsis: synopsis, genre: genre });
+      });
+      out.push({ title: title, rows: rows });
+    });
+    return out;
   }
 
   function getContentFromForm() {
     var galleryUrls = getVal("gallery-images").split("\n").map(function (s) { return s.trim(); }).filter(Boolean);
     while (galleryUrls.length < 6) galleryUrls.push("");
-    var filmRows = parseTableTextarea(getVal("resume-film"));
-    var voiceRows = parseTableTextarea(getVal("resume-voice"));
-    var theatreRows = parseTableTextarea(getVal("resume-theatre"));
-    var film = filmRows.length ? mergeSynopsisGenre(filmRows, getVal("resume-film-synopses"), getVal("resume-film-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
-    var voice = voiceRows.length ? mergeSynopsisGenre(voiceRows, getVal("resume-voice-synopses"), getVal("resume-voice-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
-    var theatre = theatreRows.length ? mergeSynopsisGenre(theatreRows, getVal("resume-theatre-synopses"), getVal("resume-theatre-genres")) : [{ project: "", role: "", director: "", synopsis: "", genre: "" }];
-    var to = parseTableTextarea(getVal("resume-training-oncamera"));
-    var tw = parseTableTextarea(getVal("resume-training-workshops"));
-    var tv = parseTableTextarea(getVal("resume-training-voice"));
+    var sections = getResumeSectionsFromAdmin();
+    if (!sections.length) sections = [{ title: "Film", rows: [] }, { title: "Voice", rows: [] }, { title: "Theatre", rows: [] }];
     var skills = parseSkillsTextarea(getVal("resume-skills"));
     return {
       hero: { heroImageUrl: getVal("hero-image") || "assets/acting/hero.jpg" },
@@ -252,12 +321,7 @@
         instagramHandle: getVal("resume-instagram") || "mickeyonstage",
         imdbUrl: getVal("resume-imdb"),
         updatedDate: getVal("resume-updated") || "February 2026",
-        film: film,
-        voice: voice,
-        theatre: theatre,
-        trainingOnCamera: to.length ? to : [{ project: "", role: "", director: "" }],
-        trainingWorkshops: tw.length ? tw : [{ project: "", role: "", director: "" }],
-        trainingVoice: tv.length ? tv : [{ project: "", role: "", director: "" }],
+        sections: sections,
         skills: skills.length ? skills : [{ category: "Skills", items: "" }]
       }
     };
@@ -275,13 +339,17 @@
   }
 
   function initPreview() {
-    document.querySelectorAll(".admin-main input, .admin-main textarea").forEach(function (el) {
-      el.addEventListener("input", function () {
+    var main = document.querySelector(".admin-main");
+    if (main) {
+      main.addEventListener("input", function () {
         clearTimeout(previewDebounceTimer);
         previewDebounceTimer = setTimeout(updatePreview, PREVIEW_DEBOUNCE_MS);
       });
-      el.addEventListener("change", updatePreview);
-    });
+      main.addEventListener("change", function () {
+        clearTimeout(previewDebounceTimer);
+        updatePreview();
+      });
+    }
     updatePreview();
   }
 
@@ -356,7 +424,13 @@
           } else {
             thumbHtml = "<span class=\"assets-thumb-wrap assets-thumb-placeholder\" title=\"" + escapeAttr(item.name) + "\">" + (item.name.split(".").pop() || "?") + "</span>";
           }
-          li.innerHTML = thumbHtml + "<span class=\"assets-item-name\" title=\"" + escapeAttr(path) + "\">" + escapeHtml(item.name) + "</span><button type=\"button\" class=\"assets-copy-btn\" data-path=\"" + escapeAttr(path) + "\">Copy path</button>";
+          var actions = "<span class=\"assets-item-actions\">" +
+            "<button type=\"button\" class=\"assets-copy-btn\" data-path=\"" + escapeAttr(path) + "\">Copy path</button>" +
+            (item.download_url ? "<a href=\"" + escapeAttr(item.download_url) + "\" target=\"_blank\" rel=\"noopener\" class=\"assets-open-btn\">Open</a>" : "") +
+            "<button type=\"button\" class=\"assets-rename-btn\" data-path=\"" + escapeAttr(path) + "\" data-name=\"" + escapeAttr(item.name) + "\" data-sha=\"" + escapeAttr(item.sha || "") + "\">Rename</button>" +
+            "<button type=\"button\" class=\"assets-delete-btn\" data-path=\"" + escapeAttr(path) + "\" data-sha=\"" + escapeAttr(item.sha || "") + "\">Delete</button>" +
+            "</span>";
+          li.innerHTML = thumbHtml + "<span class=\"assets-item-name\" title=\"" + escapeAttr(path) + "\">" + escapeHtml(item.name) + "</span>" + actions;
           if (assetsList) assetsList.appendChild(li);
         });
         if (assetsList && assetsList.children.length === 0) {
@@ -383,30 +457,111 @@
     return div.innerHTML.replace(/"/g, "&quot;");
   }
 
+  function deleteAsset(path, sha) {
+    var s = getSettings();
+    if (!s.token || !s.owner || !s.repo) {
+      showToast("Set GitHub settings first.", "error");
+      return;
+    }
+    if (!sha) {
+      showToast("Cannot delete: missing file info. Refresh and try again.", "error");
+      return;
+    }
+    if (!confirm("Delete \"" + path + "\" from the repo? This cannot be undone.")) return;
+    showToast("Deleting…", "success");
+    fetch("https://api.github.com/repos/" + s.owner + "/" + s.repo + "/contents/" + encodeURIComponent(path), {
+      method: "DELETE",
+      headers: { "Accept": "application/vnd.github.v3+json", "Authorization": "Bearer " + s.token, "Content-Type": "application/json" },
+      body: JSON.stringify({ message: "Remove " + path.split("/").pop() + " from admin", sha: sha, branch: s.branch })
+    })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (body) { throw new Error(body.message || res.statusText); });
+        showToast("Deleted from GitHub.", "success");
+        loadAssetsList();
+      })
+      .catch(function (err) {
+        showToast(err.message || "Delete failed.", "error");
+      });
+  }
+
+  function renameAsset(path, sha, currentName) {
+    var s = getSettings();
+    if (!s.token || !s.owner || !s.repo) {
+      showToast("Set GitHub settings first.", "error");
+      return;
+    }
+    var newName = prompt("New filename:", currentName);
+    if (newName == null || !newName.trim()) return;
+    newName = newName.trim();
+    if (newName === currentName) return;
+    var lastSlash = path.lastIndexOf("/");
+    var newPath = lastSlash >= 0 ? path.slice(0, lastSlash + 1) + newName : ASSETS_FOLDER + "/" + newName;
+    showToast("Renaming…", "success");
+    fetch("https://api.github.com/repos/" + s.owner + "/" + s.repo + "/contents/" + encodeURIComponent(path) + "?ref=" + encodeURIComponent(s.branch), {
+      headers: { "Accept": "application/vnd.github.v3+json", "Authorization": "Bearer " + s.token }
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (file) {
+        if (!file.content) throw new Error("Could not read file");
+        return fetch("https://api.github.com/repos/" + s.owner + "/" + s.repo + "/contents/" + encodeURIComponent(newPath), {
+          method: "PUT",
+          headers: { "Accept": "application/vnd.github.v3+json", "Authorization": "Bearer " + s.token, "Content-Type": "application/json" },
+          body: JSON.stringify({ message: "Rename " + currentName + " to " + newName + " from admin", content: file.content, branch: s.branch })
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (body) { throw new Error(body.message || res.statusText); });
+        return fetch("https://api.github.com/repos/" + s.owner + "/" + s.repo + "/contents/" + encodeURIComponent(path), {
+          method: "DELETE",
+          headers: { "Accept": "application/vnd.github.v3+json", "Authorization": "Bearer " + s.token, "Content-Type": "application/json" },
+          body: JSON.stringify({ message: "Remove old file after rename", sha: sha, branch: s.branch })
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (body) { throw new Error(body.message || res.statusText); });
+        showToast("Renamed to " + newName, "success");
+        loadAssetsList();
+      })
+      .catch(function (err) {
+        showToast(err.message || "Rename failed.", "error");
+      });
+  }
+
   if (assetsList) {
     assetsList.addEventListener("click", function (e) {
-      var btn = e.target.closest(".assets-copy-btn");
-      if (!btn) return;
-      var path = btn.getAttribute("data-path");
-      if (!path) return;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(path).then(function () {
+      var copyBtn = e.target.closest(".assets-copy-btn");
+      if (copyBtn) {
+        var path = copyBtn.getAttribute("data-path");
+        if (!path) return;
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(path).then(function () {
+            showToast("Copied: " + path, "success");
+            copyBtn.textContent = "Copied!";
+            copyBtn.classList.add("copied");
+            setTimeout(function () { copyBtn.textContent = "Copy path"; copyBtn.classList.remove("copied"); }, 2000);
+          });
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = path;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
           showToast("Copied: " + path, "success");
-          btn.textContent = "Copied!";
-          btn.classList.add("copied");
-          setTimeout(function () { btn.textContent = "Copy path"; btn.classList.remove("copied"); }, 2000);
-        });
-      } else {
-        var ta = document.createElement("textarea");
-        ta.value = path;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-        showToast("Copied: " + path, "success");
-        btn.textContent = "Copied!";
-        btn.classList.add("copied");
-        setTimeout(function () { btn.textContent = "Copy path"; btn.classList.remove("copied"); }, 2000);
+          copyBtn.textContent = "Copied!";
+          copyBtn.classList.add("copied");
+          setTimeout(function () { copyBtn.textContent = "Copy path"; copyBtn.classList.remove("copied"); }, 2000);
+        }
+        return;
+      }
+      var renameBtn = e.target.closest(".assets-rename-btn");
+      if (renameBtn) {
+        renameAsset(renameBtn.getAttribute("data-path"), renameBtn.getAttribute("data-sha"), renameBtn.getAttribute("data-name") || "");
+        return;
+      }
+      var deleteBtn = e.target.closest(".assets-delete-btn");
+      if (deleteBtn) {
+        deleteAsset(deleteBtn.getAttribute("data-path"), deleteBtn.getAttribute("data-sha"));
       }
     });
   }
@@ -426,6 +581,7 @@
       }
       var file = files[0];
       var path = ASSETS_FOLDER + "/" + file.name;
+      showToast("Uploading to GitHub…", "success");
       var reader = new FileReader();
       reader.onload = function () {
         var base64 = reader.result.split(",")[1];
@@ -454,7 +610,7 @@
           })
           .then(function (res) {
             if (!res.ok) return res.json().then(function (body) { throw new Error(body.message || res.statusText); });
-            showToast("Uploaded: " + file.name, "success");
+            showToast("Saved to GitHub: " + file.name, "success");
             loadAssetsList();
           })
           .catch(function (err) {

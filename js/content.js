@@ -145,51 +145,86 @@
     }
 
     var resumeName = document.querySelector(".resume-name");
-    if (resumeName && data.resume && data.resume.name) resumeName.textContent = data.resume.name;
+    if (resumeName && data.resume && data.resume.name && data.resume.name.trim()) {
+      resumeName.textContent = data.resume.name.trim();
+    }
 
     var resumeContact = document.querySelector(".resume-contact");
-    if (resumeContact && data.resume) {
+    if (resumeContact && data.resume && (data.resume.unionStatus || data.resume.representation || data.resume.phone || data.resume.email)) {
       var line1 = (data.resume.unionStatus || "") + " · " + (data.resume.representation || "");
       var line2 = "<a href=\"tel:" + (data.resume.phone || "") + "\">" + escapeHtml(data.resume.phone || "") + "</a> · <a href=\"mailto:" + escapeHtml(data.resume.email || "") + "\">" + escapeHtml(data.resume.email || "") + "</a> <span class=\"resume-copy-wrap no-print\"><button type=\"button\" class=\"resume-copy-btn\" id=\"copy-email\" aria-label=\"Copy email\">Copy email</button></span>";
       resumeContact.innerHTML = line1 + "<br>" + line2;
     }
 
     var resumeStats = document.querySelector(".resume-stats");
-    if (resumeStats && data.resume && data.resume.stats) resumeStats.textContent = data.resume.stats;
+    if (resumeStats && data.resume && data.resume.stats && data.resume.stats.trim()) {
+      resumeStats.textContent = data.resume.stats.trim();
+    }
 
     var resumeSocialInsta = document.querySelector(".resume-social a[href*='instagram']");
-    if (resumeSocialInsta && data.resume && data.resume.instagramHandle) {
-      resumeSocialInsta.href = "https://instagram.com/" + data.resume.instagramHandle.replace(/^@/, "");
+    if (resumeSocialInsta && data.resume && data.resume.instagramHandle && data.resume.instagramHandle.trim()) {
+      resumeSocialInsta.href = "https://instagram.com/" + data.resume.instagramHandle.replace(/^@/, "").trim();
     }
     var resumeSocialImdb = document.querySelector(".resume-social a[href*='imdb']");
-    if (resumeSocialImdb && data.resume && data.resume.imdbUrl) resumeSocialImdb.href = data.resume.imdbUrl;
+    if (resumeSocialImdb && data.resume && data.resume.imdbUrl && data.resume.imdbUrl.trim()) {
+      resumeSocialImdb.href = data.resume.imdbUrl.trim();
+    }
 
     var resumeUpdated = document.querySelector(".resume-updated");
-    if (resumeUpdated && data.resume && data.resume.updatedDate) {
-      resumeUpdated.textContent = "Resume updated " + data.resume.updatedDate;
+    if (resumeUpdated && data.resume && data.resume.updatedDate && data.resume.updatedDate.trim()) {
+      resumeUpdated.textContent = "Resume updated " + data.resume.updatedDate.trim();
     }
 
-    if (data.resume && data.resume.film && Array.isArray(data.resume.film)) {
-      fillResumeTable("film-heading", data.resume.film);
+    var sectionsContainer = document.getElementById("resume-sections-container");
+    if (data.resume && sectionsContainer) {
+      var sections = Array.isArray(data.resume.sections)
+        ? data.resume.sections
+        : legacySectionsFromResume(data.resume);
+      if (sections.length > 0) {
+        fillResumeSections(sectionsContainer, sections);
+      }
     }
-    if (data.resume && data.resume.voice && Array.isArray(data.resume.voice)) {
-      fillResumeTable("voice-heading", data.resume.voice);
-    }
-    if (data.resume && data.resume.theatre && Array.isArray(data.resume.theatre)) {
-      fillResumeTable("theatre-heading", data.resume.theatre);
-    }
-    if (data.resume && data.resume.trainingOnCamera && Array.isArray(data.resume.trainingOnCamera)) {
-      fillResumeTable("training-heading", data.resume.trainingOnCamera);
-    }
-    if (data.resume && data.resume.trainingWorkshops && Array.isArray(data.resume.trainingWorkshops)) {
-      fillResumeTable("training-workshops-heading", data.resume.trainingWorkshops);
-    }
-    if (data.resume && data.resume.trainingVoice && Array.isArray(data.resume.trainingVoice)) {
-      fillResumeTable("training-voice-heading", data.resume.trainingVoice);
-    }
-    if (data.resume && data.resume.skills && Array.isArray(data.resume.skills)) {
+    if (data.resume && data.resume.skills && Array.isArray(data.resume.skills) && data.resume.skills.length > 0) {
       fillSkillsSection(data.resume.skills);
     }
+  }
+
+  function legacySectionsFromResume(resume) {
+    var out = [];
+    if (resume.film && resume.film.length) out.push({ title: "Film", rows: resume.film });
+    if (resume.voice && resume.voice.length) out.push({ title: "Voice", rows: resume.voice });
+    if (resume.theatre && resume.theatre.length) out.push({ title: "Theatre", rows: resume.theatre });
+    if (resume.trainingOnCamera && resume.trainingOnCamera.length) out.push({ title: "Training: On-Camera", rows: resume.trainingOnCamera });
+    if (resume.trainingWorkshops && resume.trainingWorkshops.length) out.push({ title: "Training: Workshops", rows: resume.trainingWorkshops });
+    if (resume.trainingVoice && resume.trainingVoice.length) out.push({ title: "Training: Voice", rows: resume.trainingVoice });
+    return out.length ? out : [{ title: "Film", rows: [] }, { title: "Voice", rows: [] }, { title: "Theatre", rows: [] }];
+  }
+
+  function fillResumeSections(container, sections) {
+    if (!container || !Array.isArray(sections)) return;
+    container.innerHTML = "";
+    sections.forEach(function (sec, i) {
+      var id = "resume-section-" + i;
+      var sectionEl = document.createElement("section");
+      sectionEl.className = "resume-section";
+      sectionEl.setAttribute("aria-labelledby", id);
+      sectionEl.innerHTML = "<h2 id=\"" + id + "\" class=\"resume-section-title\">" + escapeHtml(sec.title || "Section") + "</h2>" +
+        "<table class=\"resume-credits\"><thead><tr><th scope=\"col\">Project</th><th scope=\"col\">Role</th><th scope=\"col\">Director / Studio</th></tr></thead><tbody></tbody></table>";
+      var tbody = sectionEl.querySelector("tbody");
+      var infoIconSvg = "<svg class=\"resume-info-icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 16v-4\"/><path d=\"M12 8h.01\"/></svg>";
+      (sec.rows || []).forEach(function (row) {
+        var synopsis = (row.synopsis || "").trim();
+        var genre = (row.genre || "").trim();
+        var hasTooltip = synopsis || genre;
+        var projectCell = "";
+        if (hasTooltip) {
+          projectCell = "<span class=\"resume-project-trigger\" data-title=\"" + escapeAttr(row.project || "") + "\" data-synopsis=\"" + escapeAttr(synopsis) + "\" data-genre=\"" + escapeAttr(genre) + "\" aria-label=\"More info\">" + infoIconSvg + "</span>";
+        }
+        projectCell += escapeHtml(row.project || "");
+        tbody.innerHTML += "<tr><td class=\"col-project\">" + projectCell + "</td><td class=\"col-role\">" + escapeHtml(row.role || "") + "</td><td class=\"col-director\">" + escapeHtml(row.director || "") + "</td></tr>";
+      });
+      container.appendChild(sectionEl);
+    });
   }
 
   function escapeHtml(s) {
@@ -252,7 +287,7 @@
     return;
   }
 
-  fetch("data/content.json")
+  fetch("data/content.json", { cache: "no-store" })
     .then(function (res) { return res.ok ? res.json() : null; })
     .then(function (data) {
       if (data) applyContent(data);
