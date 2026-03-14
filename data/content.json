@@ -59,49 +59,157 @@
       {
         "title": "Film",
         "rows": [
-          { "project": "First Light", "role": "Supporting", "director": "dir. Rorey Younge", "synopsis": "", "genre": "" },
-          { "project": "Zellinial Discourse (Short)", "role": "Lead", "director": "dir. Mickey Farmer", "synopsis": "A millennial manager struggles to find the most effective means to communicate with his gen-z team.", "genre": "Comedy" },
-          { "project": "In My Shoes (Short)", "role": "Lead", "director": "dir. Rorey Younge, deadCenter Film", "synopsis": "Blake and Celeste learn how the other lives after switching places for a day.", "genre": "Comedy" },
-          { "project": "Control (Short)", "role": "Lead", "director": "dir. Nick Hodge, High Five Media", "synopsis": "In a future where birth rates have collapsed, matched partners Carson and Sophia are placed in a room and given a pill meant to compel them to conceive. They choose not to take it.", "genre": "Drama" }
+          {
+            "project": "First Light ",
+            "role": "Supporting",
+            "director": "dir. Rorey Younge",
+            "synopsis": "A teenage vampire crushes on the local barista while two vampire hunters attempt to break up their date. ",
+            "genre": "Drama"
+          },
+          {
+            "project": "Zellinial Discourse (Short)",
+            "role": "Lead",
+            "director": "dir. Mickey Farmer",
+            "synopsis": "A millennial manager struggles to find the most effective means to communicate with his gen-z team.",
+            "genre": "Comedy"
+          },
+          {
+            "project": "In My Shoes (Short)",
+            "role": "Lead",
+            "director": "dir. Rorey Younge, deadCenter Film",
+            "synopsis": "Blake and Celeste learn how the other lives after switching places for a day.",
+            "genre": "Comedy"
+          },
+          {
+            "project": "Control (Short)",
+            "role": "Lead",
+            "director": "dir. Nick Hodge, High Five Media",
+            "synopsis": "In a future where birth rates have collapsed, matched partners Carson and Sophia are placed in a room and given a pill meant to compel them to conceive. They choose not to take it.",
+            "genre": "Drama"
+          }
         ]
       },
       {
         "title": "Voice",
         "rows": [
-          { "project": "The Parents Guide to Satanic Cults", "role": "Short Film", "director": "Morgan Bryant", "synopsis": "A short film exploring parental fears and the satanic panic era.", "genre": "Drama, Horror" },
-          { "project": "Percy Jackson and the Olympians: The Lightning Thief", "role": "Audiobook", "director": "Comic Dubs", "synopsis": "Zeus's lightning bolt is stolen and demigod Percy Jackson is accused. He must find the real thief and return the bolt before war breaks out among the Olympians.", "genre": "Adventure" }
+          {
+            "project": "The Parents Guide to Satanic Cults",
+            "role": "Short Film",
+            "director": "Morgan Bryant",
+            "synopsis": "A short film exploring parental fears and the satanic panic era.",
+            "genre": "Drama, Horror"
+          },
+          {
+            "project": "Percy Jackson and the Olympians: The Lightning Thief",
+            "role": "Audiobook",
+            "director": "Comic Dubs",
+            "synopsis": "Zeus's lightning bolt is stolen and demigod Percy Jackson is accused. He must find the real thief and return the bolt before war breaks out among the Olympians.",
+            "genre": "Adventure"
+          }
         ]
       },
       {
         "title": "Theatre",
         "rows": [
-          { "project": "Hairspray", "role": "Ensemble", "director": "Clay White, DTC", "synopsis": "1962 Baltimore. Plus-sized teen Tracy Turnblad wins a spot on a TV dance show and fights to integrate it.", "genre": "Musical, Comedy" },
-          { "project": "Rodgers & Hammerstein's Cinderella", "role": "Ensemble", "director": "Sharon Veselic, DTC", "synopsis": "The classic fairy tale: a young woman in servitude is transformed by her fairy godmother and wins the prince's heart.", "genre": "Musical" },
-          { "project": "Grease", "role": "Kenickie", "director": "Trina Harlow", "synopsis": "1959 Rydell High. Danny and Sandy navigate peer pressure and identity to find their way back together.", "genre": "Musical, Comedy" },
-          { "project": "Hades & Persephone", "role": "Hermes", "director": "Louise Smith", "synopsis": "The Greek myth of the god of the underworld and the goddess of spring.", "genre": "Drama" }
+          {
+            "project": "Hairspray",
+            "role": "Ensemble",
+            "director": "Clay White, DTC",
+            "synopsis": "1962 Baltimore. Plus-sized teen Tracy Turnblad wins a spot on a TV dance show and fights to integrate it.",
+            "genre": "Musical, Comedy"
+          },
+          {
+            "project": "Rodgers & Hammerstein's Cinderella",
+            "role": "Ensemble",
+            "director": "Sharon Veselic, DTC",
+            "synopsis": "The classic fairy tale: a young woman in servitude is transformed by her fairy godmother and wins the prince's heart.",
+            "genre": "Musical"
+          },
+          {
+            "project": "Grease",
+            "role": "Kenickie",
+            "director": "Trina Harlow",
+            "synopsis": "1959 Rydell High. Danny and Sandy navigate peer pressure and identity to find their way back together.",
+            "genre": "Musical, Comedy"
+          },
+          {
+            "project": "Hades & Persephone",
+            "role": "Hermes",
+            "director": "Louise Smith",
+            "synopsis": "The Greek myth of the god of the underworld and the goddess of spring.",
+            "genre": "Drama"
+          }
         ]
       },
       {
         "title": "Training: On-Camera",
         "rows": [
-          { "project": "On-Camera Acting", "role": "Multiple instructors", "director": "OFA Studios", "synopsis": "", "genre": "" }
+          {
+            "project": "On-Camera Acting",
+            "role": "Multiple instructors",
+            "director": "OFA Studios",
+            "synopsis": "",
+            "genre": ""
+          }
         ]
       },
       {
         "title": "Training: Workshops",
         "rows": [
-          { "project": "Business for Actors", "role": "Kylr Coffman", "director": "OFA Studios", "synopsis": "", "genre": "" },
-          { "project": "Action for Actors — Level 2: Intro to Weapons", "role": "Justin Parks", "director": "OFA Studios, Range 405", "synopsis": "", "genre": "" },
-          { "project": "Action for Actors — Level 1 Stunts", "role": "Justin Parks, Branden Smith", "director": "OFA Studios, 1907 Stunts", "synopsis": "", "genre": "" },
-          { "project": "Script & Character Analysis", "role": "Willa Darian", "director": "OFA Studios", "synopsis": "", "genre": "" }
+          {
+            "project": "Business for Actors",
+            "role": "Kylr Coffman",
+            "director": "OFA Studios",
+            "synopsis": "",
+            "genre": ""
+          },
+          {
+            "project": "Action for Actors — Level 2: Intro to Weapons",
+            "role": "Justin Parks",
+            "director": "OFA Studios, Range 405",
+            "synopsis": "",
+            "genre": ""
+          },
+          {
+            "project": "Action for Actors — Level 1 Stunts",
+            "role": "Justin Parks, Branden Smith",
+            "director": "OFA Studios, 1907 Stunts",
+            "synopsis": "",
+            "genre": ""
+          },
+          {
+            "project": "Script & Character Analysis",
+            "role": "Willa Darian",
+            "director": "OFA Studios",
+            "synopsis": "",
+            "genre": ""
+          }
         ]
       },
       {
         "title": "Training: Voice",
         "rows": [
-          { "project": "Voice Acting", "role": "Aaron Michael", "director": "Double AA Media", "synopsis": "", "genre": "" },
-          { "project": "Voice Acting for characters and video games", "role": "Jeremy Hall", "director": "Real Voice L.A.", "synopsis": "", "genre": "" },
-          { "project": "Voice acting for characters", "role": "Tara Strong", "director": "Tara Strong's Voicelings", "synopsis": "", "genre": "" }
+          {
+            "project": "Voice Acting",
+            "role": "Aaron Michael",
+            "director": "Double AA Media",
+            "synopsis": "",
+            "genre": ""
+          },
+          {
+            "project": "Voice Acting for characters and video games",
+            "role": "Jeremy Hall",
+            "director": "Real Voice L.A.",
+            "synopsis": "",
+            "genre": ""
+          },
+          {
+            "project": "Voice acting for characters",
+            "role": "Tara Strong",
+            "director": "Tara Strong's Voicelings",
+            "synopsis": "",
+            "genre": ""
+          }
         ]
       }
     ],
