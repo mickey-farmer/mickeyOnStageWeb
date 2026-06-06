@@ -59,34 +59,11 @@
       {
         "title": "Film",
         "rows": [
-          {
-            "project": "First Light ",
-            "role": "Supporting",
-            "director": "dir. Rorey Younge",
-            "synopsis": "A teenage vampire crushes on the local barista while two vampire hunters attempt to break up their date. ",
-            "genre": "Drama"
-          },
-          {
-            "project": "Zellinial Discourse (Short)",
-            "role": "Lead",
-            "director": "dir. Mickey Farmer",
-            "synopsis": "A millennial manager struggles to find the most effective means to communicate with his gen-z team.",
-            "genre": "Comedy"
-          },
-          {
-            "project": "In My Shoes (Short)",
-            "role": "Lead",
-            "director": "dir. Rorey Younge, deadCenter Film",
-            "synopsis": "Blake and Celeste learn how the other lives after switching places for a day.",
-            "genre": "Comedy"
-          },
-          {
-            "project": "Control (Short)",
-            "role": "Lead",
-            "director": "dir. Nick Hodge, High Five Media",
-            "synopsis": "In a future where birth rates have collapsed, matched partners Carson and Sophia are placed in a room and given a pill meant to compel them to conceive. They choose not to take it.",
-            "genre": "Drama"
-          }
+          { "project": "Sun on the Snowflakes", "role": "Supporting", "director": "dir. Marlon Ladd", "synopsis": "What begins as petty internet trash talk spirals into something far more dangerous. Across the country, a volatile group of strangers—each fueled by insecurity, ego, and a warped sense of justice—decide to take conflict off the screen and into the real world.", "genre": "Drama"  },
+          { "project": "First Light (Short)", "role": "Supporting", "director": "dir. Rorey Younge", "synopsis": "", "genre": "Drama" },
+          { "project": "Zellinial Discourse (Short)", "role": "Lead", "director": "dir. Mickey Farmer", "synopsis": "A millennial manager struggles to find the most effective means to communicate with his gen-z team.", "genre": "Comedy" },
+          { "project": "In My Shoes (Short)", "role": "Lead", "director": "dir. Rorey Younge, deadCenter Film", "synopsis": "Blake and Celeste learn how the other lives after switching places for a day.", "genre": "Comedy" },
+          { "project": "Control (Short)", "role": "Lead", "director": "dir. Nick Hodge, High Five Media", "synopsis": "In a future where birth rates have collapsed, matched partners Carson and Sophia are placed in a room and given a pill meant to compel them to conceive. They choose not to take it.", "genre": "Drama" }
         ]
       },
       {
